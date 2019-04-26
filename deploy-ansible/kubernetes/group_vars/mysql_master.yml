@@ -1,0 +1,9 @@
+---
+
+master_base_dir: "/usr/local/mysql"
+master_data_dir: "/data/mysqlhome/mysql"
+master_log_dir: "/data/mysqlhome/log"
+master_slowlog_dir: "/data/mysqlhome/slowlog"
+master_run_dir: "/data/msyqlhome/run"
+master_tmp_dir: "/data/mysqlhome/tmp"
+master_binlog_dir: "/data/mysqlhome/binlog"
