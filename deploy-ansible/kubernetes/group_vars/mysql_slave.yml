@@ -1,0 +1,8 @@
+---
+
+slave_base_dir: "/usr/local/mysql"
+slave_data_dir: "/data/mysqlhome/mysql"
+slave_log_dir: "/data/mysqlhome/log"            
+slave_slowlog_dir: "/data/mysqlhome/slowlog"
+slave_run_dir: "/data/msyqlhome/run"
+slave_tmp_dir: "/data/mysqlhome/tmp"
