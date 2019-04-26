@@ -1,0 +1,5 @@
+---
+
+gluster_work_dir: "/usr/local/glusterd"
+gluster_data_dir: "/data/gfs_data"
+
