@@ -12,23 +12,23 @@ MySQL是一个[**关系型数据库管理系统**](https://baike.baidu.com/item/
 
 > 语法 ：create database 数据库名
 >
-> **#创建数据库ab**
+> **创建数据库ab**
 >
 > create database ab；
 
 ### 2. 查看数据库
 
-> **#显示所有的数据库**
+> **显示所有的数据库**
 >
 > show databases；
 >
-> **#以行显示所有数据库**
+> **以行显示所有数据库**
 >
 > show databases \G
 
 ### 3.删除数据库
 
-> 语法 ：drop database 数据库名
+> 语法:drop database 数据库名
 >
 > 删除数据库ab
 >
@@ -40,9 +40,9 @@ MySQL是一个[**关系型数据库管理系统**](https://baike.baidu.com/item/
 
 ### 1. 创建表
 
-> 语法  ：create table 表名 （字段名，类型，字段名，类型，字段名，类型）；
+> 语法:create table 表名 （字段名，类型，字段名，类型，字段名，类型）;
 >
-> create table book（idint（10），namechar（40），age int）；
+> create table book（idint（10），namechar（40），age int）;
 
 ### 2.查看表结构
 
@@ -88,27 +88,26 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 
 ### 8.表中添加字段
 
-####     1.表中添加字段
+#### 1.表中添加字段
 
-> ​        语法：alter table 表名 add 字段名 字段类型
+> 语法：alter table 表名 add 字段名 字段类型
 >
-> ​        alter table lists add sum int（50）；
+> alter table lists add sum int（50）；
 
-####     2.表第一行添加字段
+#### 2.表第一行添加字段
 
-> ​    语法：alter table 表名 add 字段名 字段类型 first
+> 语法：alter table 表名 add 字段名 字段类型 first
 >
-> ​    **#第一行添加字段**
+> **第一行添加字段**
 >
-> ​    alter table lists add sum int（50）first；
+> alter table lists add sum int（50）first；
 
-####     3.在字段后添加字段
+#### 3.在字段后添加字段
 
-> ​    语法：alter table 表名 add 字段名 字段类型 after su
+> 语法：alter table 表名 add 字段名 字段类型 after su
 >
-> ​    **#字段su后添加字段**
->
-> ​    alter table lists add so char（30）after su；
+> **字段su后添加字段**
+> alter table lists add so char（30）after su;
 
 ### 9.删除表中字段
 
@@ -122,17 +121,17 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 
 #### 1.字段中插入记录
 
-> 语法：insert into 表名 values（1，’zhangshan'，2）
+> 语法：insert into 表名 values（1,'zhangshan',2）;
 >
-> **#后面记录指定为空**
+> **后面记录指定为空**
 >
 > insert into lists values（1，2，‘shanshi’，null，null）；
 >
-> **#插入多条记录中间用分号隔开**
+> **插入多条记录中间用分号隔开**
 >
 > insert into lists valus （1，2，‘lisi’，null，null），（2，3，‘siji’，1，1）；
 >
-> **#指定字段插入**
+> **指定字段插入**
 >
 > insert into lists （su，ids）values（1，1）；
 
@@ -140,19 +139,19 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 
 > 语法：select * from 表名
 >
-> **#\*表示所有记录**
+> **表示所有记录**
 >
 > select * from lists；
 >
-> **#查询ids中记录**
+> **查询ids中记录**
 >
 > select ids from lists；
 >
-> **#查询ids，su中记录**
+> **查询ids，su中记录**
 >
 > select ids，su from lists；
 >
-> **#查看指定数据库中表内容**
+> **查看指定数据库中表内容**
 >
 > select * from food.lists;    `
 
@@ -162,7 +161,7 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 >
 > delete from lists where ids=2；
 >
-> **#删除字段name记录为空的行**
+> **删除字段name记录为空的行**
 >
 > delete from lists where name is null；
 
@@ -172,11 +171,11 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 >
 > update lists set ids=1 where name=null；
 >
-> **#所有都变成2**
+> **所有都变成2**
 >
 > update lists set ids=2
 >
-> **#同时更新多个字段用分号隔开**
+> **同时更新多个字段用分号隔开**
 >
 > update lists set ids=3，name=‘lisi’ where su=1；
 
@@ -202,7 +201,7 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 >
 > select ids,name from lists where ids>3 or name <5;
 >
-> **#and与or同时存在时，先算and左右两边的，逻辑与先执行**
+> **and与or同时存在时，先算and左右两边的，逻辑与先执行**
 >
 > select * from lists where ids=3 and(su=1or name =5);
 
@@ -218,11 +217,11 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 
 > 语法：select distinct 字段1，字段2 from 表名 orderby 字段名
 >
-> **#默认是升序排列**
+> **默认是升序排列**
 >
 > select distinct ids，su from lists orderby ids；
 >
-> **#降序排列**
+> **降序排列**
 >
 > select distinct ids，su from lists orderby ids desc；
 
@@ -234,7 +233,7 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 >
 > 语法：select 旧字段名 as 新字段名 from 表名
 >
-> **#指定字段别名**
+> **指定字段别名**
 >
 > select ids as s from lists；
 
@@ -246,27 +245,27 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 
 ## 四.常用select查询
 
-> **#打印当前的日期和时间**
+> **打印当前的日期和时间**
 >
 > selectnow（）；
 >
-> **#打印当前的日期**
+> **打印当前的日期**
 >
 > selectcurdate（）；
 >
-> **#打印当前的时间**
+> **打印当前的时间**
 >
 > selectcurtime（）
 >
-> **#打印当前数据库**
+> **打印当前数据库**
 >
 > selectdatabase（）；
 >
-> **#打印数据库版本**
+> **打印数据库版本**
 >
 > selectversion（）；
 >
-> **#打印当前用户**
+> **打印当前用户**
 >
 > selectuser（）；
 
@@ -292,14 +291,14 @@ mysql的存储引擎包括：MyISAM、InnoDB、BDB、MEMORY、MERGE、EXAMPLE、
 >
 > mysqldump -uroot -p123456 book>book.sql
 >
-> **#导出包含建库语句**
+> **导出包含建库语句**
 >
 > mysqldump -uroot -p123456 -B book>book.sql
 >
-> **#导出所有数据库**
+> **导出所有数据库**
 >
 > mysqldump -uroot -p123456 -A book>book.sql
 >
-> **#导出数据库到文件**
+> **导出数据库到文件**
 >
 > select * from lists outfile ‘/tmp/123.txt' ;  
