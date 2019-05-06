@@ -51,6 +51,12 @@ deactivate
 ```shell
 1、安装virtualenvwrapper
 pip3 install virtualenvwrapper
+mkdir /root/pythonvirtualenv
+cat >> /etc/profile <<EOF
+export WORKON_HOME=~/pythonvirtualenv
+source /usr/local/python/bin/virtualenvwrapper.sh
+EOF
+source /etc/profile
 2、创建虚拟机
 mkvirtualenv demo -p /usr/local/python/bin/python3
 3、列出虚拟机
