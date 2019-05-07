@@ -6,6 +6,8 @@
 - 编译安装
 - 更换系统python版本
 - 配置yum
+
+**1.1、安装python**
 ```shell
 1、安装get
 yum install -y wget
@@ -33,7 +35,8 @@ sed -i 's@#!/usr/bin/python@#!/usr/bin/python2.7@g' /usr/libexec/urlgrabber-ext-
 **安装步骤**
 - 安装virtualenv
 - 安装virtualenvwrapper
-**1、安装virtualenv**
+
+**2.1、安装virtualenv**
 ```shell
 1、安装pip
 wget https://bootstrap.pypa.io/get-pip.py
@@ -47,7 +50,7 @@ cd demo && source /demo/bin/activate
 5、退出虚拟环境
 deactivate
 ```
-**2、安装virtualenvwrapper**
+**2.2、安装virtualenvwrapper**
 ```shell
 1、安装virtualenvwrapper
 pip3 install virtualenvwrapper
