@@ -1,0 +1,59 @@
+---
+
+- name: create packages.yml
+  template: src=downloads.yml.j2 dest={{ deploy_dir }}/config/downloads_binary.yml
+
+- include_vars: file={{ deploy_dir }}/config/downloads_binary.yml
+
+- name: create download dir
+  file: path="{{ item }}" state=directory mode=0755
+  with_items:
+  - "{{ downloads_dir }}"
+  - "{{ resources_dir }}"
+  - "{{ resources_dir }}/bin"
+
+
+- name: download  kubernetes binary
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ downloads_dir }}/{{ item.name }}-{{ item.version }}.tar.gz"
+#    checksum: "{{ item.checksum | default(omit) }}"
+    force: yes
+    validate_certs: no
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 4
+  with_items: "{{ kubernetes_packages }}"
+
+- name: download  mysql binary
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ downloads_dir }}/{{ item.name }}-{{ item.version }}.tar.gz"
+#    checksum: "{{ item.checksum | default(omit) }}"
+    force: yes
+    validate_certs: no
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 4
+  with_items: "{{ mysql_packages }}"
+
+- name: unarchive kubernetes binary
+  shell: ls -1 {{ item.name }}-{{ item.version }}.tar.gz | xargs -n1 tar xzf
+  args:
+    chdir: "{{ downloads_dir }}"
+    warn: no
+  with_items: "{{ kubernetes_packages }}"
+
+- name: cp kubernetes binary
+  shell: >
+    cp -v {{ downloads_dir }}/{{ item.name }}-{{ item.version}}*/bin/* "{{ resources_dir }}/bin/"
+  with_items: "{{ kubernetes_packages }}"
+
+- name: cp mysql binary
+  shell: >
+    cp -v {{ downloads_dir }}/{{ item.name }}-{{ item.version}}*/bin/* "{{ resources_dir }}/bin/"
+  with_items: "{{ mysql_packages }}"
+
+- name: clean up download dir
+  shell: >
+    cd "{{ downloads_dir }}" && find . -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} \;
