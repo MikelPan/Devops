@@ -38,13 +38,28 @@ gitlab_rails['gitlab_shell_ssh_port'] = 2222
 #### 三、安装jenkins
 ```shell
 # 安装java环境
-yum install -y java-1.8.0-openjdk
+yum install -y java-1.8.0-openjdk-devel
+cat >> /etc/profile <<EOF
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar 
+export PATH=$JAVA_HOME/jre/bin:${PATH}
+EOF
+source /etc/profile
 # 安装maven环境
 wget http://mirror.bit.edu.cn/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
 tar zxvf apache-maven-3.6.1-bin.tar.gz -C /usr/local/src 
 mv /usr/local/src/apache-maven-3.6.1 /usr/local/apache-maven-3.6.1
 echo "PATH=$PATH:/usr/local/apache-maven-3.6.1/bin" >>/etc/profile
 source /etc/profile
+# 修改maven仓库
+   <localRepository>/root/mvnproject/repo</localRepository>
+   <mirror>
+      <id>nexus-aliyun</id>
+      <mirrorOf>*</mirrorOf>
+      <name>Nexus aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </mirror>
+# 安装jenkins
 wget http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.164.3/jenkins.war
 java -jar jenkins.war --httpPort=8888 &
 ```
@@ -84,4 +99,30 @@ pipeline {
         }
     }
 }
+```
+#### 四、maven编译
+```shell
+# 创建maven项目
+mkdir -p /root/mvnproject/mvn01 && cd /root/mvnproject/mvn01
+vim pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0  http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--所有的Maven项目都必须配置这四个配置项-->
+    <modelVersion>4.0.0</modelVersion>
+    <!--groupId指的是项目名的项目组，默认就是包名-->
+    <groupId>com.plyx.mvn01</groupId>
+    <!--artifactId指的是项目中的某一个模块，默认命名方式是"项目名-模块名"-->
+    <artifactId>mvn01-model</artifactId>
+    <!--version指的是版本，这里使用的是Maven的快照版本-->
+    <version>SNAPSHOT-0.0.1</version>
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactID>junit</artifactID>
+            <version>4.10</version>
+        </dependency>
+    </dependencies>
+</project>
+mkdir -p src/{main,test}/java/com/plyx/mvn01/model
 ```
