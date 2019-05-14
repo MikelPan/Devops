@@ -61,7 +61,36 @@ source /etc/profile
     </mirror>
 # 安装jenkins
 wget http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.164.3/jenkins.war
-java -jar jenkins.war --httpPort=8888 &
+# jenkins开机启动
+在jenkins目录下创建启动脚本，和编写systemd启动文件
+mkdir /root/.jenkins/scripts
+cd /root/.jenkins/scripts/ touch start.sh stop.sh
+cat > start.sh <<EOF
+#!/bin/bash
+java -jar /root/sofeware/jenkins.war --httpPort=8888 > /root/.jenkins/logs/start.log/start.log &
+EOF
+cat > stop.sh <<EOF
+#!/bin/bash
+pid=`ps aux | grep -v grep | grep jenkins | awk '{print $2}'`
+kill -9 $pid
+EOF
+chmod +X start.sh stop.sh
+cat > /usr/lib/systemd/system/jenkins.service <<EOF
+[Unit]
+Description=jenkins
+After=syslog.target network.target
+
+[Service]
+Type=forking
+ExecStart=/root/.jenkins/scripts/start.sh
+ExecStop=/root/.jenkins/scripts/stop.sh
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable jenkins
+systemctl start jenkins
 ```
 **编写jenkins pipeline语法**
 ```groovy
