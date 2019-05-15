@@ -34,6 +34,7 @@ EOF
 127.0.0.1 gitlab.plyx.site
 # 修改配置文件
 gitlab_rails['gitlab_shell_ssh_port'] = 2222
+```
 #### 三、yum安装gitlab
 ```shell
 # 安装依赖
