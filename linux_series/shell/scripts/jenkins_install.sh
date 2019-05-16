@@ -23,8 +23,14 @@ wget http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.164.3/jenkins.war -P /ro
 java -jar /root/sofeware/jenkins.war --httpPort=8888 &
 }
 jenkins_authstart(){
+if [ ! -d "/root/.jenkins/scripts" ];then
 mkdir /root/.jenkins/scripts
-cd /root/.jenkins/scripts/ touch start.sh stop.sh
+elif [ ! -d "/root/.jenkins/logs/start.log" ];then
+mkdir /root/.jenkins/logs/start.log
+elif [ ! -f "/root/.jenins/logs/start.log/start.log" ];then
+touch /root/.jenins/logs/start.log/start.log
+fi
+cd /root/.jenkins/scripts && touch start.sh stop.sh
 cat > start.sh <<EOF
 #!/bin/bash
 java -jar /root/sofeware/jenkins.war --httpPort=8888 & > /root/.jenkins/logs/start.log/start.log &
