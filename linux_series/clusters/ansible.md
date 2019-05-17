@@ -34,6 +34,14 @@ vim requirements.yml
  path: /root/ansible-playbook
 ---------------------------------------------end------------------------------------------
 ansible-galaxy install -f -p /root/ansible-playbook -r requirements.yml
+# 查看下载结果如下
+[root@localhost ansible-playbook]# ll
+总用量 8
+drwxr-xr-x 11 root root 4096 5月  17 08:21 0utsider.ansible_zabbix_agent
+drwxr-xr-x  9 root root  177 5月  17 08:32 geerlingguy.mysql
+-rw-r--r--  1 root root  266 5月  17 08:29 requirements.yml
+drwxr-xr-x  9 root root  295 5月  17 08:30 williamyeh.nginx
+
 ```
 
 
