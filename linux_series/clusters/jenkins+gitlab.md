@@ -67,7 +67,7 @@ mkdir /root/.jenkins/scripts
 cd /root/.jenkins/scripts/ touch start.sh stop.sh
 cat > start.sh <<EOF
 #!/bin/bash
-java -jar /root/sofeware/jenkins.war --httpPort=8888 > /root/.jenkins/logs/start.log/start.log &
+java -jar /root/sofeware/jenkins.war --httpPort=8888 & > /root/.jenkins/logs/start.log/start.log &
 EOF
 cat > stop.sh <<EOF
 #!/bin/bash
