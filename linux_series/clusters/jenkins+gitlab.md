@@ -116,7 +116,7 @@ pipeline {
         stage ('编译+单元测试') {
             steps {
                 echo "start compile"
-                sh "mvn -U -pl ${MODULE} -am clean pakeage"
+                sh "mvn clean package"
             }
         }
         
