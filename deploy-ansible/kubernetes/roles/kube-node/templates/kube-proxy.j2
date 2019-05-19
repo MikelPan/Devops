@@ -1,0 +1,9 @@
+###
+# kubernetes proxy config
+
+# default config should be adequate
+
+# Add your own!
+KUBE_PROXY_ARGS="--bind-address={{ NODE_IP }}  --hostname-override={{ NODE_IP }} \
+ --hostname-override=  --hostname-override={{ NODE_IP }} \
+ --kubeconfig=/etc/kubernetes/kube-proxy.kubeconfig"

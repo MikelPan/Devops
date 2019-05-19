@@ -1,0 +1,106 @@
+---
+
+- include_vars: file={{ basic_dir }}/roles/down/tasks/down_binary.yml
+
+- name: detect outbound network
+  shell: >
+    warn=no
+    curl -s --connect-timeout 10 www.baidu.com 2>/dev/null >/dev/null; echo $?
+  changed_when: false
+  register: outbound_network_st
+
+- name: set outbound network fact
+  set_fact: has_outbound_network={{ outbound_network_st.stdout.strip() == '0' }}
+
+- name: download kubernetes binary
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ item.name }}-{{ item.version }}.tar.gz"
+    force: yes
+    validate_certs: no
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 4
+  with_items: "{{ kubernetes }}"
+  when: has_outbound_network
+
+- name: download docker
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ docker }}"
+  when: has_outbound_network
+
+- name: download etcd
+  get_url:
+    url: "{{ item.url1 }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ etcd }}"
+  when: has_outbound_network
+
+- name: download docker-compose
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ docker_compose }}"
+  when: has_outbound_network
+
+- name: download ca tools cfssl
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ cfssl }}"
+  when: has_outbound_network
+
+- name: download ca tools cfssljson
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ cfssljson }}"
+  when: has_outbound_network
+
+- name: download ca tools cfssl-certinfo
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ cfssl-certinfo }}"
+  when: has_outbound_network
+
+- name: download harbor
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ harbor }}"
+  when: has_outbound_network
+
+- name: download mysql
+  get_url:
+    url: "{{ item.url }}"
+    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    force: yes
+    validate_certs: no
+  register: 4
+  with_items: "{{ mysql }}"
+  when: has_outbound_network
+
