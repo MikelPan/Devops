@@ -1,0 +1,4 @@
+---
+
+docker_root_dir: "/opt/dockerdata"
+docker_config_dir: "/etc/docker"
