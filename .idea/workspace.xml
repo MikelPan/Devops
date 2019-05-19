@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f68d35bf-b4a2-42ef-9b4a-614c518baa6f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Devops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Devops.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deploy-ansible/kubernetes/ansible.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/deploy-ansible/kubernetes/ansible.cfg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +14,7 @@
     <session id="1163196857">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
@@ -42,7 +39,7 @@
           <entry key="md" value="89" />
           <entry key="service" value="2" />
           <entry key="sh" value="11" />
-          <entry key="yml" value="24" />
+          <entry key="yml" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -50,7 +47,7 @@
           <entry key="Markdown" value="86" />
           <entry key="PLAIN_TEXT" value="29" />
           <entry key="SQL" value="3" />
-          <entry key="YAML" value="24" />
+          <entry key="YAML" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -62,7 +59,7 @@
           <entry key="md" value="8467" />
           <entry key="service" value="8" />
           <entry key="sh" value="1107" />
-          <entry key="yml" value="426" />
+          <entry key="yml" value="436" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -71,23 +68,13 @@
           <entry key="PLAIN_TEXT" value="2073" />
           <entry key="Python" value="57" />
           <entry key="SQL" value="61" />
-          <entry key="YAML" value="426" />
+          <entry key="YAML" value="436" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/op-index.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/readonly_kubectl.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -168,12 +155,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/setup/01-CA_and_prerequisite.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor />
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="99" column="18" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -219,10 +215,11 @@
         <option value="$PROJECT_DIR$/linux_series/services/registry.sh" />
         <option value="$PROJECT_DIR$/linux_series/clusters/jenkins+gitlab.md" />
         <option value="$PROJECT_DIR$/linux_series/clusters/build-image.sh" />
+        <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="317" />
     <option name="y" value="5" />
     <option name="width" value="1400" />
@@ -252,7 +249,32 @@
             <path>
               <item name="Devops" type="b2602c69:ProjectViewProjectNode" />
               <item name="Devops" type="462c0819:PsiDirectoryNode" />
-              <item name="MySQL_Analysis" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy-ansible" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Devops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Devops" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy-ansible" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="roles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Devops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Devops" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy-ansible" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="roles" type="462c0819:PsiDirectoryNode" />
+              <item name="down" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Devops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Devops" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy-ansible" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="roles" type="462c0819:PsiDirectoryNode" />
+              <item name="down" type="462c0819:PsiDirectoryNode" />
+              <item name="tasks" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -301,7 +323,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24498416" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24498416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -312,7 +334,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32908705" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32908705" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -324,14 +346,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/ipvs.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/ingress-tls.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -706,6 +720,13 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="99" column="18" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
         </state>
       </provider>
     </entry>
