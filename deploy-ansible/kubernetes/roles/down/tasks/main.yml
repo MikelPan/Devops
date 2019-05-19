@@ -1,6 +1,6 @@
 ---
 
-- include_vars: file={{ basic_dir }}/roles/down/tasks/down_binary.yml
+- include_vars: file={{ base_dir }}/roles/down/tasks/down_binary.yml
 
 - name: detect outbound network
   shell: >
@@ -15,7 +15,7 @@
 - name: download kubernetes binary
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ item.name }}-{{ item.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ item.name }}-{{ item.version }}.tar.gz"
     force: yes
     validate_certs: no
   register: get_url_result
@@ -27,7 +27,7 @@
 - name: download docker
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
     force: yes
     validate_certs: no
   register: 4
@@ -37,7 +37,7 @@
 - name: download etcd
   get_url:
     url: "{{ item.url1 }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
     force: yes
     validate_certs: no
   register: 4
@@ -47,7 +47,7 @@
 - name: download docker-compose
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
     force: yes
     validate_certs: no
   register: 4
@@ -57,7 +57,7 @@
 - name: download ca tools cfssl
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}"
+    dest: "{{ base_dir }}/bin/{{ items.name }}"
     force: yes
     validate_certs: no
   register: 4
@@ -67,7 +67,7 @@
 - name: download ca tools cfssljson
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}"
+    dest: "{{ base_dir }}/bin/{{ items.name }}"
     force: yes
     validate_certs: no
   register: 4
@@ -77,7 +77,7 @@
 - name: download ca tools cfssl-certinfo
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}"
+    dest: "{{ base_dir }}/bin/{{ items.name }}"
     force: yes
     validate_certs: no
   register: 4
@@ -87,7 +87,7 @@
 - name: download harbor
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
     force: yes
     validate_certs: no
   register: 4
@@ -97,7 +97,7 @@
 - name: download mysql
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ basic_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
     force: yes
     validate_certs: no
   register: 4
