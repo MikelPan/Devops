@@ -3,14 +3,14 @@
 - name: unarch kubernetes binary
   shell: ls -1 {{ item.name }}-{{ item.version }}.tar.gz | xargs -n1 tar xzf
   args:
-    chdir: "{{ base_dir/bin }}"
+    chdir: "{{ base_dir }}/bin"
     warn: no
   with_items: "{{ kubernetes }}"
 
 - name: unarch kubernetes binary
   shell: ls -1 {{ item.name }}-{{ item.version }}.tar.gz | xargs -n1 tar xzf
   args:
-    chdir: "{{ base_dir/bin }}"
+    chdir: "{{ base_dir }}/bin"
     warn: no
   with_items: "{{ mysql }}"
 
