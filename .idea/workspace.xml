@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f68d35bf-b4a2-42ef-9b4a-614c518baa6f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Devops.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Devops.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down_binary.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down_binary.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,15 +20,18 @@
     <session id="1163196857">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="5" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -30,24 +39,26 @@
           <entry key="Dockerfile" value="3" />
           <entry key="LICENSE" value="1" />
           <entry key="back" value="2" />
-          <entry key="cfg" value="2" />
+          <entry key="cfg" value="4" />
           <entry key="cnf" value="1" />
           <entry key="cnf_master" value="1" />
           <entry key="cnf_slave" value="1" />
           <entry key="ini" value="2" />
           <entry key="j2" value="3" />
-          <entry key="md" value="89" />
+          <entry key="md" value="129" />
+          <entry key="py" value="11" />
           <entry key="service" value="2" />
           <entry key="sh" value="11" />
-          <entry key="yml" value="25" />
+          <entry key="yml" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Markdown" value="86" />
-          <entry key="PLAIN_TEXT" value="29" />
+          <entry key="Markdown" value="126" />
+          <entry key="PLAIN_TEXT" value="31" />
+          <entry key="Python" value="11" />
           <entry key="SQL" value="3" />
-          <entry key="YAML" value="25" />
+          <entry key="YAML" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -59,7 +70,7 @@
           <entry key="md" value="8467" />
           <entry key="service" value="8" />
           <entry key="sh" value="1107" />
-          <entry key="yml" value="436" />
+          <entry key="yml" value="465" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -68,7 +79,7 @@
           <entry key="PLAIN_TEXT" value="2073" />
           <entry key="Python" value="57" />
           <entry key="SQL" value="61" />
-          <entry key="YAML" value="436" />
+          <entry key="YAML" value="465" />
         </counts>
       </usages-collector>
     </session>
@@ -76,105 +87,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/readonly_kubectl.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/upgrade.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/mysql_slave.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/practice/es_cluster.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/glusterfs_servers.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/practice/java_war_app.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/mysql_master.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/practice/mariadb_cluster.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/release-notes/kubeasz-0.1.0.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/release-notes/kubeasz-1.1.0.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/setup/00-planning_and_overall_intro.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/setup/01-CA_and_prerequisite.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/docker.yml">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml">
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/all.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="99" column="18" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
+            <state relative-caret-position="108">
+              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down_binary.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>E:\PycharmProjects\python\python\Python-100-Days</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -216,16 +183,18 @@
         <option value="$PROJECT_DIR$/linux_series/clusters/jenkins+gitlab.md" />
         <option value="$PROJECT_DIR$/linux_series/clusters/build-image.sh" />
         <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml" />
+        <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down_binary.yml" />
+        <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/all.yml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="317" />
     <option name="y" value="5" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -233,7 +202,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,6 +219,13 @@
               <item name="Devops" type="462c0819:PsiDirectoryNode" />
               <item name="deploy-ansible" type="462c0819:PsiDirectoryNode" />
               <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Devops" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Devops" type="462c0819:PsiDirectoryNode" />
+              <item name="deploy-ansible" type="462c0819:PsiDirectoryNode" />
+              <item name="kubernetes" type="462c0819:PsiDirectoryNode" />
+              <item name="group_vars" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Devops" type="b2602c69:ProjectViewProjectNode" />
@@ -280,10 +255,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/k8s (4)/k8s (4)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -322,8 +298,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24498416" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24498416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -334,7 +311,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32908705" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.16029724" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -346,7 +323,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/ingress-tls.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day91-100/MySQL相关知识.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -354,7 +331,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/ingress.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day91-100/关于测试.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -362,7 +339,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/index.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day91-100/团队项目开发.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -370,7 +347,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/hpa.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day91-100/电商网站技术要点剖析.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -378,15 +355,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/helm.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-324" />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/heapster.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day91-100/网络API接口设计.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -394,7 +363,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/heapster.1.4.3.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/10.爬虫项目实战.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -402,160 +371,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/harbor.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/douban/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/efk.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/dashboard.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/dashboard.1.6.3.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/chrony.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/dockerfiles/ansible/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/douban/douban/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-371" />
+        <state relative-caret-position="-1959" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/dockerfiles/es-index-rotator/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/douban/douban/pipelines.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/dockerfiles/es-index-rotator/rotate.sh">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/douban/douban/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2187" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/douban/douban/items.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/bin/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/dockerfiles/kubeasz/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/asyncio01.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/gitlab/app.yaml.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/gitlab/config.sh.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/gitlab/gitlab-ci.yml.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/gitlab/gitlab-install.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/gitlab/gitlab-runner.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/guide/gitlab/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/01.fix_kubelet_annoymous_access.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/branch.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/donate.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/DoneList.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/HowToContribute.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/LICENSE">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/asyncio02.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/mixes/TodoList.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/coroutine01.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/generator01.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/generator02.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2985" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day66-75/code/main_redis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3633" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day61-65/04.WebSocket的应用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -563,7 +423,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/AddMaster.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day61-65/05.项目实战.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -571,7 +431,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/AddNode.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day61-65/03.异步化.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -579,7 +439,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/ch_apiserver_cert.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day61-65/02.Tornado入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -587,7 +447,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/change_ip_allinone.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day61-65/01.预备知识.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -595,7 +455,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/change_k8s_network.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day56-60/04.数据库操作.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -603,7 +463,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/ChangeVIP.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day56-60/01.Flask入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -611,7 +471,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/clean_one_node.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day56-60/02.模板的使用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -619,7 +479,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/cluster_restore.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day56-60/03.表单的处理.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -627,7 +487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/loadballance_ingress_nodeport.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/15.单元测试和项目上线.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -635,7 +495,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/op-etcd.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/14.异步任务和定时任务.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -643,7 +503,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/op-index.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/13.短信和邮件.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -651,7 +511,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/readonly_kubectl.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/12.使用缓存.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -659,7 +519,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/op/upgrade.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/11.RESTful架构和DRF进阶.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -667,7 +527,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/practice/es_cluster.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/10.RESTful架构和DRF入门.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -675,7 +535,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/practice/java_war_app.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/09.文件下载和报表.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -683,7 +543,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/practice/mariadb_cluster.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/08.文件上传和富文本编辑.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -691,7 +551,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/release-notes/kubeasz-0.1.0.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/07.日志和调试.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -699,7 +559,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/release-notes/kubeasz-1.1.0.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/06.中间件的应用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -707,7 +567,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/setup/00-planning_and_overall_intro.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/05.Cookie和Session.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -715,18 +575,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/docs/setup/01-CA_and_prerequisite.md">
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/04.表单的应用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/03.静态资源和Ajax请求.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/02.深入模型.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day41-55/01.快速上手.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day21-30/Web前端概述.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../python/python/Python-100-Days/Day16-20/Python语言进阶.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down_binary.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/main.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="99" column="18" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="18" />
+        <state relative-caret-position="162">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/glusterfs_servers.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/mysql_master.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/mysql_slave.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/docker.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy-ansible/kubernetes/group_vars/all.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
