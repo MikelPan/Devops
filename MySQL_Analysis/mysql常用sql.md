@@ -68,6 +68,8 @@ ALTER table tableName ADD INDEX indexName(columnName)
 DROP INDEX [indexName] ON mytable;
 # 删除字段
 ALTER table tableName drop cloumes
+# 查看索引
+show index from table;
 # 创建唯一索引
 CREATE UNIQUE INDEX indexName ON mytable(username(length))
 # 添加索引
