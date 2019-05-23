@@ -19,88 +19,41 @@
     force: yes
     validate_certs: no
   register: get_url_result
+  ignore_errors: True
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
   retries: 4
+  delay: "{{ retry_stagger | random + 3 }}"
   with_items: "{{ kubernetes }}"
   when: has_outbound_network
 
-- name: download docker
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
-    force: yes
-    validate_certs: no
-  register: 4
-  with_items: "{{ docker }}"
-  when: has_outbound_network
-
-- name: download etcd
-  get_url:
-    url: "{{ item.url1 }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
-    force: yes
-    validate_certs: no
-  register: 4
-  with_items: "{{ etcd }}"
-  when: has_outbound_network
-
-- name: download docker-compose
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
-    force: yes
-    validate_certs: no
-  register: 4
-  with_items: "{{ docker_compose }}"
-  when: has_outbound_network
 
 - name: download ca tools cfssl
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}"
+    dest: "{{ base_dir }}/bin/{{ item.name }}"
     force: yes
     validate_certs: no
-  register: 4
-  with_items: "{{ cfssl }}"
-  when: has_outbound_network
-
-- name: download ca tools cfssljson
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}"
-    force: yes
-    validate_certs: no
-  register: 4
-  with_items: "{{ cfssljson }}"
-  when: has_outbound_network
-
-- name: download ca tools cfssl-certinfo
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}"
-    force: yes
-    validate_certs: no
-  register: 4
-  with_items: "{{ cfssl-certinfo }}"
-  when: has_outbound_network
-
-- name: download harbor
-  get_url:
-    url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
-    force: yes
-    validate_certs: no
-  register: 4
-  with_items: "{{ harbor }}"
+  register: get_url_result
+  ignore_errors: True
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 4
+  delay: "{{ retry_stagger | random + 3 }}"
+  with_items: "{{ CA }}"
   when: has_outbound_network
 
 - name: download mysql
   get_url:
     url: "{{ item.url }}"
-    dest: "{{ base_dir }}/bin/{{ items.name }}-{{ items.version }}.tar.gz"
+    dest: "{{ base_dir }}/bin/{{ item.name }}-{{ item.version }}.tar.gz"
     force: yes
     validate_certs: no
-  register: 4
+  register: get_url_result
+  ignore_errors: True
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 4
+  delay: "{{ retry_stagger | random + 3 }}"
   with_items: "{{ mysql }}"
   when: has_outbound_network
+
+- include_tasks: unarch.yml
 
