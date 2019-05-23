@@ -3,15 +3,24 @@
 - name: unarch kubernetes binary
   shell: ls -1 {{ item.name }}-{{ item.version }}.tar.gz | xargs -n1 tar xzf
   args:
-    chdir: "{{ base_dir }}/bin"
+    chdir: "{{ unarch_dir }}"
     warn: no
   with_items: "{{ kubernetes }}"
 
-- name: unarch kubernetes binary
+- name: rename kubernetes unarch files
+  shell: cp -r {{ item.name}}-{{ item.version }} {{ item.name }}
+  args:
+    chdir: "{{ unarch_dir }}"
+    warn: no
+  with_items: "{{ kubernetes }}"
+  when: {{ item.name }} == "etcd"
+
+- name: unarch mysql binary
   shell: ls -1 {{ item.name }}-{{ item.version }}.tar.gz | xargs -n1 tar xzf
   args:
-    chdir: "{{ base_dir }}/bin"
+    chdir: "{{ unarch_dir }}"
     warn: no
   with_items: "{{ mysql }}"
+
 
 

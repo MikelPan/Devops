@@ -6,17 +6,19 @@ kubernetes:
     url: https://storage.googleapis.com/kubernetes-release/release/v1.12.5/kubernetes-server-linux-amd64.tar.gz
   - name: etcd
     version: v3.3.13
-    url: https://github.com/coreos/etcd/releases/download/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
-    url2: https://storage.googleapis.com/etcd/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
+#    url: https://github.com/coreos/etcd/releases/download/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
+    url: https://storage.googleapis.com/etcd/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
   - name: docker
     version: 18.09.6
     url: https://download.docker.com/linux/static/stable/x86_64/docker-18.09.6.tgz
-  - name: docker-compose
-    version: 1.24.0
-    url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64
   - name: harbor
     version: v1.8.0-rc2
     url: https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline-installer-v1.8.0-rc2.tgz
+
+docker_compose:
+  - name: docker-compose
+    version: Linux-x86_64
+    url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64
 
 mysql:
   - name: mysql
@@ -33,7 +35,6 @@ CA:
   - name: cfssl-certinfo
     version:
     url: https://pkg.cfssl.org/R1.2/cfssl-certinfo_linux-amd64
-
 
 
 
