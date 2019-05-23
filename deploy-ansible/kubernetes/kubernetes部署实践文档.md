@@ -15,10 +15,9 @@ kubernetes_node1:node1
 kubernetes_node2:node2
 # 磁盘规划
 kubernetes_node1: 
-	1、/data/docker  # docker根目录
-	2、/work/kubernetes_deploy  # kubenetes 部署目录
-	3、/work/kubernetes_deploy/ssl # kubernetes ssl 证书目录
-	4、
+	1、/data/docker         # docker根目录
+	2、/root/deploy         # kubenetes 部署目录
+	3、/etc/kubernetes/ssl  # kubernetes ssl 证书目录
 ```
 
 ##### 2、每个节点安装依赖
@@ -40,10 +39,14 @@ EOF
 # 配置主机名
 hostnamectl set-hostname node1  # kubernetes_node1
 hostnamectl set-hostname node2  # kubernetes_node2
+# 新机器分区并挂载磁盘
+fdisk /dev/sdb
+mkfs -t xfs /dev/sdb1
+mkdir /data && mount /dev/sdb1 /data
 # 添加hosts
 cat >> /etc/hosts <<EOF
-192.168.174.10 node1
-192.168.174.11 node2
+172.16.5.150 node1
+172.16.5.151 node2
 EOF
 scp /etc/hosts root@192.168.174.11:/etc/hosts  # 拷贝到其他节点
 # 关闭防火墙
@@ -116,7 +119,6 @@ ansible node -m ping
     "ping": "pong"
 }
 ```
-
 ##### 6、deploy部署k8s
 
 ```shell
@@ -221,7 +223,7 @@ ansible-playbook 90.setup.yml
 
 ------
 
-本步骤[01.prepare.yml](https://github.com/gitplyx/kubeasz/blob/master/01.prepare.yml)主要完成CA证书创建、分发、环境变量、负载均衡配置等 
+本步骤01.prepare.yml主要完成CA证书创建、分发、环境变量、负载均衡配置等 
 
 ##### 1、创建CA证书和秘钥
 
@@ -409,7 +411,7 @@ listen kube-master
 - bind 监听客户端请求的地址/端口，保证监听master的VIP地址和端口，{{ MASTER_PORT }}与hosts里面设置对应
 - mode 选择四层负载模式 (当然你也可以选择七层负载，请查阅指南，适当调整)
 - balance 选择负载算法 (负载算法也有很多供选择)
-- server 配置master节点真实的endpoits，必须与 [hosts文件](https://github.com/gitplyx/kubeasz/blob/master/example/hosts.m-masters.example)对应设置
+- server 配置master节点真实的endpoits，必须与hosts文件对应设置
 
 **安装keeplived**
 
@@ -994,7 +996,7 @@ KUBE_CONTROLLER_MANAGER_ARGS="--master=http://127.0.0.1:8080 --bind-address=127.
 ```
 
 - --address 值必须为 127.0.0.1，因为当前 kube-apiserver 期望 scheduler 和 controller-manager 在同一台机器
-- --master=[http://127.0.0.1:8080](http://127.0.0.1:8080/) 使用非安全 8080 端口与 kube-apiserver 通信
+- --master=http://127.0.0.1:8080 使用非安全 8080 端口与 kube-apiserver 通信
 - --cluster-cidr 指定 Cluster 中 Pod 的 CIDR 范围，该网段在各 Node 间必须路由可达(calico 实现)
 - --service-cluster-ip-range 参数指定 Cluster 中 Service 的CIDR范围，必须和 kube-apiserver 中的参数一致
 - --cluster-signing-* 指定的证书和私钥文件用来签名为 TLS BootStrap 创建的证书和私钥
@@ -1036,7 +1038,7 @@ KUBE_SCHEDULER_ARGS="--master=http://127.0.0.1:8080 --leader-elect=true --addres
 ```
 
 - --address 同样值必须为 127.0.0.1
-- --master=[http://127.0.0.1:8080](http://127.0.0.1:8080/) 使用非安全 8080 端口与 kube-apiserver 通信
+- --master=http://127.0.0.1:8080 使用非安全 8080 端口与 kube-apiserver 通信
 - --leader-elect=true 部署多台机器组成的 master 集群时选举产生一个处于工作状态的 kube-controller-manager 进程
 
 ##### 6、创建config配置文件

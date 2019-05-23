@@ -6,8 +6,8 @@
 # to create CA, kubeconfig, kube-proxy.kubeconfig etc. on 'deploy' node
 - hosts: deploy
   roles:
-  - deploy
   - down
+  - deploy
 
 # prepare tasks for all nodes
 - hosts:
