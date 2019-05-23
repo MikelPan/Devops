@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Devops.iml" filepath="$PROJECT_DIR$/.idea/Devops.iml" />
       <module fileurl="file://$PROJECT_DIR$/../python/python/Python-100-Days/.idea/Python-100-Days.iml" filepath="$PROJECT_DIR$/../python/python/Python-100-Days/.idea/Python-100-Days.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../django_resetframework/.idea/django_resetframework.iml" filepath="$PROJECT_DIR$/../django_resetframework/.idea/django_resetframework.iml" />
     </modules>
   </component>
 </project>
