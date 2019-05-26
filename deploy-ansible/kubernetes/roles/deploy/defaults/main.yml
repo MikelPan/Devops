@@ -3,9 +3,9 @@ CA_EXPIRY: "876000h"
 CERT_EXPIRY: "438000h"
 
 # kubeconfig 配置参数
-CLUSTER_NAME: "cluster1"
-USER_NAME: "user1"
-CONTEXT_NAME: "context1"
+CLUSTER_NAME: "kubernetes"
+USER_NAME: "admin"
+CONTEXT_NAME: "kubernetes"
 
 # kubectl 权限配置
 # 'admin' 表示创建集群管理员（所有）权限的 kubeconfig 

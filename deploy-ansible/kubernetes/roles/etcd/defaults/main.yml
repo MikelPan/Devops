@@ -4,3 +4,6 @@ ETCD_NODES: "{{ TMP_NODES.rstrip(',') }}"
 
 # etcd 集群初始状态 new/existing
 CLUSTER_STATE: "new"
+
+# etcd证书目录
+etcd_ssl_dir: "/etc/etcd/ssl"

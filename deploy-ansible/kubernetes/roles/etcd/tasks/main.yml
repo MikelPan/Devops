@@ -31,6 +31,19 @@
         -config={{ ca_dir }}/ca-config.json \
         -profile=kubernetes etcd-csr.json | {{ bin_dir }}/cfssljson -bare etcd"
 
+- name: 修改etcd目录权限
+  file: name={{ item }} owner=etcd group=etcd mode=0755 recurse=yes
+  with_items:
+  - "/etc/etcd/ssl"
+  - "/var/lib/etcd"
+
+- name: 分发etcd证书
+  synchronize: src={{ etcd_ssl_dir }}/{{ item }} dest={{ ca_dir }}/{{ item }}
+  with_items:
+  - etcd.pem
+  - etcd-key.pem
+  delegate_to: "{{ groups.deploy[0] }}"
+
 - name: 创建etcd的systemd unit文件
   template: src=etcd.service.j2 dest=/etc/systemd/system/etcd.service
   tags: upgrade_etcd
