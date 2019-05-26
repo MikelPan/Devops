@@ -3,26 +3,32 @@
 kubernetes:
   - name: kubernetes
     version: 1.12.5
+    tag_name: kubernetes-server-linux-amd64.tar.gz
     url: https://storage.googleapis.com/kubernetes-release/release/v1.12.5/kubernetes-server-linux-amd64.tar.gz
   - name: etcd
     version: v3.3.13
+    tag_name: etcd-v3.3.13-linux-amd64.tar.gz
 #    url: https://github.com/coreos/etcd/releases/download/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
     url: https://storage.googleapis.com/etcd/v3.3.13/etcd-v3.3.13-linux-amd64.tar.gz
   - name: docker
     version: 18.09.6
+    tag_name: docker-18.09.6.tgz
     url: https://download.docker.com/linux/static/stable/x86_64/docker-18.09.6.tgz
   - name: harbor
     version: v1.8.0-rc2
+    tag_name: harbor-offline-installer-v1.8.0-rc2.tgz
     url: https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline-installer-v1.8.0-rc2.tgz
 
 docker_compose:
   - name: docker-compose
     version: Linux-x86_64
+    tag_name: docker-compose-Linux-x86_64
     url: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64
 
 mysql:
   - name: mysql
     version: 5.7.23
+    tag_name: mysql-5.7.23-linux-glibc2.12-x86_64.tar.gz
     url: https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.23-linux-glibc2.12-x86_64.tar.gz
 
 CA:
