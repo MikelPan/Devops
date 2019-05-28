@@ -83,7 +83,7 @@ start salve
 show slave status\G
 ```
 ### 三、mysql主从复制 （gtid）
-3.1、修改主库配置文件
+#### 3.1、修改主库配置文件
 ```shell
 vim /etc/my.cnf
 [mysqld]
@@ -104,33 +104,35 @@ slave-preserve-commit-order         =ON                             #
 gtid-mode = ON
 enforce-gtid-consistency = ON
 ```
-3.2、主库上执行操作
+#### 3.2、主库上执行操作
 ```shell
 # 创建主从复制账号
 create user 'repl'@'192.168.5.%' identified by 'repl@2019#pl'
 grant replication slave *.* to 'repl'@'192.168.5.%'
 flush privileges
 # 导出主库数据
-mysqldump --single-transaction -uroot -proot123 --master-data=2 --flush-logs --events --triggers --routines -A > all.sql
+mysqldump --single-transaction -uroot -proot123 --opt --master-data=2 --flush-logs --events --triggers --routines -A > all.sql
 ```
-3.3、修改mysql从服务器配置
+#### 3.3、修改mysql从服务器配置
 ```shell
 server_id                           = 2
 binlog-ignore-db                    =mysql
 binlog_format                       =row
-#log-bin =                           =/data/mysqlData/binlog/slave1-bin
-#log-bin-index                       =/data/mysqlData/binlog/salve1-bin.index
+log-bin =                           =/data/mysqlData/binlog/slave-bin
+log-bin-index                       =/data/mysqlData/binlog/salve-bin.index
 log-slave-updates                   =on
 expire_logs_days                    =7
 sync_binlog                         = 0
 relay_log                           =/data/mysqlData/relaylog/relay-bin
+read_only                           =1
 log_slave_updates                   =1
+
 
 ####: gitd
 gtid-mode = ON
 enforce-gtid-consistency = ON
 ```
-3.4、配置主从
+#### 3.4、配置主从
 ```shell
 # 清空 gtid_executed
 reset master
@@ -138,9 +140,9 @@ reset master
 mysql -uroot -proot123 < all.sql
 # 配置主从
 CHANGE MASTER TO
-MASTER_HOST='192.168.5.1',
+MASTER_HOST='127.0.0.1',
 MASTER_USER='repl',
-MASTER_PASSWORD='repl@2019#pl',
+MASTER_PASSWORD='password',
 MASTER_PORT=3306,
 MASTER_AUTO_POSITION = 1；
 # 开启主从
@@ -148,7 +150,7 @@ start slave
 # 查看主从复制状态
 show slave status\G
 ```
-3.5、跳过事务
+#### 3.5、跳过事务
 ```shell
 stop slave
 set gtid_next='f75ae43f-3f5e-11e7-9b98-001c4297532a:20'
@@ -157,3 +159,70 @@ commit
 set gtid_next='AUTOMATIC'
 start slave
 ```
+### 四、mysql从传统模式改为gtid
+#### 4.1、修改全局变量
+```shell
+1、修改enforce_gtid_consistency为warn
+set global enforce_gtid_consistency=warn;
+2、修改enforce_gtid_consistency为on
+set global enforce_gtid_consistency=on;
+3、修改gtid模式为off_permissive
+set global gtid_mode=off_permissive;
+4、修改gtid模式为on_permissive
+set global gtid_mode=on_permissive;
+5、确认从库的onging_anonymous_transaction_count参数是否为0
+show global status like '%ongoing_anonymous_%';
+6、开启gtid
+set global gtid_mode=on;
+7、开启主从复制
+stop slave
+change master to master_auto_position=1;
+start slave
+```
+#### 4.2、修改my.cnf配置文件
+```shell
+# 主库添加配置
+gtid_mode=on
+enforce_gtid_consistency=on
+# 主库添加配置
+gtid_mode=on
+enforce_gtid_consistency=on
+log_slave_updates=1
+```
+#### 4.3、数据导出导入
+```shell
+# 主库数据导出
+mysqldump --single-transaction -uroot -proot123 --opt --master-data=2 --flush-logs --events --triggers --routines -A > all.sql
+# 从库数据导入
+systemctl restart mysqld
+reset 
+mysql -uroot -p < all.sql
+```
+#### 4.4、从库开启主从
+```shell
+reset master
+# 配置msater主机信息
+CHANGE MASTER TO
+MASTER_HOST='127.0.0.1',
+MASTER_USER='repl',
+MASTER_PASSWORD='pawword',
+MASTER_PORT=3306,
+MASTER_AUTO_POSITION = 1;
+# 开启主从
+start slave
+```
+#### 4.5、gtid跳过事件
+```shell
+# 查看gtid_next的值
+show variables like '%next%';
+# 停止从库
+stop slave;
+# 修改gtid为下一个值
+set gtid_next='6a5a698f-18eb-11e9-afa0-6c92bf45c92e:17';
+begin
+commit
+SET GTID_NEXT="AUTOMATIC";
+start slave;
+show slave status;
+```
+

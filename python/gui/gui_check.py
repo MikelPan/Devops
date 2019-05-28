@@ -10,9 +10,13 @@ import wx
 class App(wx.App):
     # 初始化方法
     def OnInit(self):
-        frame = wx.Frame(parent=None, title='Hello wxPython')
+        frame = wx.Frame(parent=None, title='Hello wxPython', size=(400, 300))
+        panel = wx.Panel(frame)
+        label = wx.StaticText(panel, label="Hello World", pos=(200, 10))
         frame.Show()
         return True
+
+
 
 if __name__ == "__main__":
     app = App()
