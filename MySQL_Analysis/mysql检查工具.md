@@ -96,7 +96,7 @@ select sleep(1);
 ---------------------------------end--------------------------------------
 ```
 ### 三、pt工具使用
-**pt 工具安装**
+#### 1、pt 工具安装
 ```shell
 #!/bin/bash
 percona-toolkit-yum-install(){
@@ -126,7 +126,7 @@ rpm -ivh percona-toolkit-3.0.12-1.el7.x86_64.rpm
 --since 从什么时间开始分析，值为字符串，可以是指定的某个”yyyy-mm-dd [hh:mm:ss]”格式的时间点，也可以是简单的一个时间值：s(秒)、h(小时)、m(分钟)、d(天)，如12h就表示从12小时前开始统计。
 --until 截止时间，配合—since可以分析一段时间内的慢查询
 ```
-1、percona-toolkit用法
+#### 2、percona-toolkit用法
 ```shell
 # 查看慢查询日志
 pt-query-digest slow-query.log
@@ -178,7 +178,7 @@ pt-query-digest slow-query.log
 select sleep(2)\G
 -------------------------------------end-----------------------------------------
 ```
-2、pt常规用法
+#### 3、pt分析慢查询
 ```shell
 pt-query-digest  slow.log > slow_report.log
 pt-query-digest  --since=12h  slow.log > slow_report2.log
@@ -197,4 +197,15 @@ mysqlbinlog mysql-bin.000093 > mysql-bin000093.sql
 pt-query-digest  --type=binlog  mysql-bin000093.sql > slow_report10.log
 # 分析general log
 pt-query-digest  --type=genlog  localhost.log > slow_report11.log
+```
+#### 4、pt校验主从
+```shell
+# 创建账号
+create user checksum@'172.16.123.%' identified by 'chk123!@#';
+GRANT SELECT, PROCESS, SUPER, REPLICATION SLAVE, REPLICATION CLIENT ON . TO 'checksum'@'172.16.123.%';
+GRANT ALL PRIVILEGES ON percona.* TO 'checksum'@'172.16.123.%';
+# 校验数据库
+pt-table-checksum --host=172.16.123.101 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format  --dababases=db1
+# 校验数据库(忽略mysql库)
+pt-table-checksum --host=172.16.123.101 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format --ignore-databases=mysql
 ```
