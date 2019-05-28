@@ -45,8 +45,8 @@ set global long_query_time=1;
 mysqldumpslow -s c -t 5 /var/lib/mysql/slow-query.log  
 ----------------------------------start----------------------------------------
 Reading mysql slow query log from /var/lib/mysql/slow-query.log
-Count: 2  Time=1.50s (3s)  Lock=0.00s (0s)  Rows=1.0 (2), root[root]@localhost
-  select sleep(N)
+Count: 2  Time=1.50s (3s)  Lock=0.00s (0s)  Rows=1.0 (2), 
+select sleep(N)
 
 Died at /usr/bin/mysqldumpslow line 161, <> chunk 2.
 ----------------------------------end-------------------------------------------
