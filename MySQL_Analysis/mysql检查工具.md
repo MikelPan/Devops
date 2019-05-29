@@ -201,20 +201,37 @@ pt-query-digest  --type=genlog  localhost.log > slow_report11.log
 #### 4、pt校验主从
 ```shell
 # 创建账号
-create user 'checksum'@'172.16.5.%' identified by 'chk123!@#';
-GRANT SELECT, PROCESS, SUPER, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'checksum'@'172.16.5.%';
+create user 'checksum'@'localhost' identified by 'chk123!@#';
+GRANT SELECT, PROCESS, SUPER, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'checksum'@'192.168.0.%';
 create database percona;
-GRANT ALL PRIVILEGES ON percona.* TO 'checksum'@'172.16.5.%';
+GRANT ALL PRIVILEGES ON percona.* TO 'checksum'@'192.168.0.%';
+# 默认创建表结构
+CREATE TABLE `checksums` (
+  `db` char(64) NOT NULL,
+  `tbl` char(64) NOT NULL,
+  `chunk` int(11) NOT NULL,
+  `chunk_time` float DEFAULT NULL,
+  `chunk_index` varchar(200) DEFAULT NULL,
+  `lower_boundary` text,
+  `upper_boundary` text,
+  `this_crc` char(40) NOT NULL,
+  `this_cnt` int(11) NOT NULL,
+  `master_crc` char(40) DEFAULT NULL,
+  `master_cnt` int(11) DEFAULT NULL,
+  `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`db`,`tbl`,`chunk`),
+  KEY `ts_db_tbl` (`ts`,`db`,`tbl`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 # 校验数据库
 pt-table-checksum --host=172.16.5.150 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format  --dababases=db1
 # 校验数据库(忽略mysql库)
-pt-table-checksum --host=172.16.123.101 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format --ignore-databases=mysql
+pt-table-checksum --host=localhost --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format --nocheck-replication-filters --ignore-databases=mysql,sys,percona
 # 主从修复测试
-pt-table-sync --replicate=percona.checksums h=172.16.123.101,P=3306,u=checksum,p='chk123!@#' --print
+pt-table-sync --replicate=percona.checksums h=192.168.0.12,u=checksum,p='chk123!@#' h=192.168.0.14,u=checksum,p='chk123!@#' --print
 # 主从同步修复
-pt-table-sync --replicate=percona.checksums h=172.16.123.101,P=3306,u=checksum,p='chk123!@#' --execute
+pt-table-sync --replicate=percona.checksums h=192.168.0.12,u=checksum,p='chk123!@#' h=192.168.0.14,u=checksum,p='chk123!@#'  --execute
 # 只修复从库
-pt-table-sync --execute --replicate=percona.checksums --sync-to-master h=192.168.1.207,P=3306,u=root,p=123456
+pt-table-sync --execute --replicate=percona.checksums --sync-to-master h=172.16.5.151,P=3306,u=checksum,p='chk123!@#'
 # 登录从库检查
 SELECT 
 * 
