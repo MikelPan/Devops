@@ -203,9 +203,9 @@ mysql -uroot -p < all.sql
 reset master
 # 配置msater主机信息
 CHANGE MASTER TO
-MASTER_HOST='127.0.0.1',
+MASTER_HOST='192.168.0.12',
 MASTER_USER='repl',
-MASTER_PASSWORD='pawword',
+MASTER_PASSWORD='password',
 MASTER_PORT=3306,
 MASTER_AUTO_POSITION = 1;
 # 开启主从

@@ -209,4 +209,19 @@ GRANT ALL PRIVILEGES ON percona.* TO 'checksum'@'172.16.5.%';
 pt-table-checksum --host=172.16.5.150 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format  --dababases=db1
 # 校验数据库(忽略mysql库)
 pt-table-checksum --host=172.16.123.101 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format --ignore-databases=mysql
+# 主从修复测试
+pt-table-sync --replicate=percona.checksums h=172.16.123.101,P=3306,u=checksum,p='chk123!@#' --print
+# 主从同步修复
+pt-table-sync --replicate=percona.checksums h=172.16.123.101,P=3306,u=checksum,p='chk123!@#' --execute
+# 只修复从库
+pt-table-sync --execute --replicate=percona.checksums --sync-to-master h=192.168.1.207,P=3306,u=root,p=123456
+# 登录从库检查
+SELECT 
+* 
+FROM 
+percona.checksums 
+WHERE 
+master_cnt <> this_cnt 
+OR master_crc <> this_crc 
+OR ISNULL(master_crc) <> ISNULL(this_crc) 
 ```

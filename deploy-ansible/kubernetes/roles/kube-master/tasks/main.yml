@@ -76,7 +76,7 @@
  
 - name: 创建token.csv文件
   template: src=token.csv.j2 dest=/etc/kubernetes/token.csv
-  tags: upfrade_k8s, restart_master
+  tags: restart_master
 
 - name: 创建kube-apiserver v1.8的systemd unit文件
   template: src=kube-apiserver-v1.8.service.j2 dest=/etc/systemd/system/kube-apiserver.service

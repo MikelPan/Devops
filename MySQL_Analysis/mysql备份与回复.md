@@ -122,14 +122,14 @@ create user 'repl'@'192.168.5.%' identified by 'repl@back'
 # 添加权限
 grant reload,lock tables,replication client,process,super on *.* to 'repl'@'192.168.5.%'
 # 添加权限最小化
-grant reload,lock tables,replication client,process,super on *.* to 'repl'@'192.168.5.%'
+grant reload,lock tables,replication client,process on *.* to 'replback'@'localhost' identified by 'repl@2019#back';
 flush privileges
 # 创建备份目录
 mkdir -p /data/mysql_backup
 # 备份
 innobackupex --defaults-file=/etc/my.cnf --no-timestamp --user repl --host 172.16.5.123 --password Password1 /data/mysql_back/all-20190216bak
 # 流试压缩备份
-innobackupex --defaults-file=/etc/my.cnf --no-timestamp --user repl --host 172.16.5.123 --password Password1 --stream=tar /tmp | gzip - > /data/mysql_back/all-20190216bak.tgz
+innobackupex --defaults-file=/etc/my.cnf --no-timestamp --user replback --host 192.168.0.12 --password  --stream=tar /work/Monitoring | gzip - > /work/Monitoring/all-20190528.tgz
 ```
 
 - 全备恢复

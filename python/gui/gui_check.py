@@ -16,8 +16,6 @@ class App(wx.App):
         frame.Show()
         return True
 
-
-
 if __name__ == "__main__":
     app = App()
     app.MainLoop()
