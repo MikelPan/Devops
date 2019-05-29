@@ -1,3 +1,14 @@
+#!/bin/bash
+# 创建用户
+groupadd mysql
+useradd -r -g mysql -s /bin/false mysql
+# 创建数据目录
+mkdir -p /data/mysql3306/{mysql,binlog,slowlog,tmp,log,run,config}
+mkdir -p /usr/local/mysql
+chown -R mysql. /data/mysql3306
+chown -R mysql. /usr/local/mysql
+#### 写入配置文件
+cat > /data/msyql3306/config/my.cnf <<EOF
 [client]
 port            = 3306
 socket          =/data/mysql3306/run/mysql.sock
@@ -169,3 +180,81 @@ innodb_monitor_enable="module_adaptive_hash"
 [mysqldump]
 quick
 max_allowed_packet = 32M
+EOF
+cat > /data/msyql3306/config/mysqld.service <<EOF
+# Copyright (c) 2015, 2016, Oracle and/or its affiliates. All rights reserved.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+#
+# systemd service file for MySQL forking server
+#
+
+[Unit]
+Description=MySQL Server
+Documentation=man:mysqld(7)
+Documentation=http://dev.mysql.com/doc/refman/en/using-systemd.html
+After=network.target
+After=syslog.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+User=mysql
+Group=mysql
+
+Type=forking
+
+PIDFile=/data/mysql3306/run/mysqld.pid
+
+# Disable service start and stop timeout logic of systemd for mysqld service.
+TimeoutSec=0
+
+# Execute pre and post scripts as root
+PermissionsStartOnly=true
+
+# Needed to create system tables
+#ExecStartPre=/usr/bin/mysqld_pre_systemd
+
+# Start main service
+ExecStart=/usr/local/mysql/bin/mysqld --daemonize --pid-file=/data/mysql3306/run/mysqld.pid $MYSQLD_OPTS
+
+# Use this to switch malloc implementation
+EnvironmentFile=-/etc/sysconfig/mysql
+
+# Sets open_files_limit
+LimitNOFILE = 65535
+
+Restart=on-failure
+
+RestartPreventExitStatus=1
+
+PrivateTmp=false
+EOF
+#### 二、mysql二进制下载
+yum install -y wget -c && wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz -P /root/sofeware
+tar zxf mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz -C /usr/local/src
+cp -r /usr/local/src/mysql-5.7.26-linux-glibc2.12-x86_64/* /usr/local/mysql
+#### 配置环境变量
+echo "export PATH=$PATH:/usr/local/mysql/bin" >> /etc/profile
+source /etc/profile
+#### 初始化
+mysqld --defaults-file=/data/mysql3306/config/my.cnf --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql3306/mysql
+#### 配置ssl
+mysql_ssl_rsa_setup --basedir=/usr/local/mysql --datadir=/data/mysql3306/mysql
+#### 开机启动
+cp /data/mysql3306/config/mysqld.service /usr/lib/systemd/system/mysqld.service
+systemctl enable mysqld
+systemctl start mysqld
+
