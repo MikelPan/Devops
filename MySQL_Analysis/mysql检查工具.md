@@ -201,11 +201,12 @@ pt-query-digest  --type=genlog  localhost.log > slow_report11.log
 #### 4、pt校验主从
 ```shell
 # 创建账号
-create user checksum@'172.16.123.%' identified by 'chk123!@#';
-GRANT SELECT, PROCESS, SUPER, REPLICATION SLAVE, REPLICATION CLIENT ON . TO 'checksum'@'172.16.123.%';
-GRANT ALL PRIVILEGES ON percona.* TO 'checksum'@'172.16.123.%';
+create user 'checksum'@'172.16.5.%' identified by 'chk123!@#';
+GRANT SELECT, PROCESS, SUPER, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'checksum'@'172.16.5.%';
+create database percona;
+GRANT ALL PRIVILEGES ON percona.* TO 'checksum'@'172.16.5.%';
 # 校验数据库
-pt-table-checksum --host=172.16.123.101 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format  --dababases=db1
+pt-table-checksum --host=172.16.5.150 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format  --dababases=db1
 # 校验数据库(忽略mysql库)
 pt-table-checksum --host=172.16.123.101 --port=3306 --user=checksum --password='chk123!@#' --no-check-binlog-format --ignore-databases=mysql
 ```
