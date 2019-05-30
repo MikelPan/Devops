@@ -4,7 +4,8 @@ kubernetes:
   - name: kubernetes
     version: 1.12.5
     tag_name: kubernetes-server-linux-amd64.tar.gz
-    url: https://storage.googleapis.com/kubernetes-release/release/v1.12.5/kubernetes-server-linux-amd64.tar.gz
+    url_v1.12.5: https://storage.googleapis.com/kubernetes-release/release/v1.12.5/kubernetes-server-linux-amd64.tar.gz
+    url_v1.12.9: https://dl.k8s.io/v1.12.9/kubernetes-server-linux-amd64.tar.gz
   - name: etcd
     version: v3.3.13
     tag_name: etcd-v3.3.13-linux-amd64.tar.gz

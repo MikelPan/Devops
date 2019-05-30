@@ -39,9 +39,9 @@ slave-preserve-commit-order         =ON                             #
 2.2、主库上执行操作
 ```shell
 # 创建主从复制账号
-create user 'repl'@'192.168.5.%' identified by 'repl@2019#pl'
-grant replication slave *.* to 'repl'@'192.168.5.%'
-flush privileges
+create user 'repl'@'192.168.5.%' identified by 'repl@2019#pl';
+grant replication slave *.* to 'repl'@'192.168.5.%';
+flush privileges;
 # 导出主库数据
 mysqldump --single-transaction -uroot -proot123 --master-data=2 --flush-logs --events --triggers --routines -A > all.sql
 # 记录binlog文件和position号
@@ -140,9 +140,9 @@ reset master
 mysql -uroot -proot123 < all.sql
 # 配置主从
 CHANGE MASTER TO
-MASTER_HOST='127.0.0.1',
+MASTER_HOST='172.16.5.150',
 MASTER_USER='repl',
-MASTER_PASSWORD='password',
+MASTER_PASSWORD='repl@2019#pl',
 MASTER_PORT=3306,
 MASTER_AUTO_POSITION = 1；
 # 开启主从

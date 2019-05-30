@@ -12,6 +12,7 @@ import yaml
 import sys
 import urllib.request
 
+'''批量下载
 # 获取需要下载的url地址
 def get_url(f):
     url = yaml.load(f)['kubernetes'][:]
@@ -27,6 +28,19 @@ def get_tagname(f):
     for data in tag:
         url_list.append(data['tag_name'])
     return tagname_list
+'''
+
+# 单个下载
+def get_url(url):
+    f = open(url)
+    url = yaml.load(f)['kubernetes'][0]['url']
+    return url
+
+def get_tagname(url):
+    f = open(url)
+    tag = yaml.load(f)['kubernetes'][0]['tag']
+    return tag
+
 
 # 字节bytes转化K\M\G
 def format_size(bytes):
@@ -78,10 +92,9 @@ if __name__ == "__main__":
     # 定义下载文件路径
     url = '/root/Devops/deploy-ansible/kubernetes/roles/down/tasks/down_binary.yml'
     desc_dir = '/root/Devops/deploy-ansible/kubernetes/down'
-    f = open(url)
     start_time = time.time()
-    file_name = get_tagname(f)
-    url = get_url(f)
+    file_name = get_tagname(url)
+    url = get_url(url)
     desc_dir = desc_dir
     main()
 
