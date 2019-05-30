@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffb8cdfc-fe6d-4f49-9002-c7f8250d1567" name="Default Changelist" comment="" />
+    <list default="true" id="ffb8cdfc-fe6d-4f49-9002-c7f8250d1567" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MySQL_Analysis/mysql主从复制.md" beforeDir="false" afterPath="$PROJECT_DIR$/MySQL_Analysis/mysql主从复制.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,16 +13,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/python/reptile/first_crawler.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor />
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/data/Peewee.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -50,12 +43,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MySQL_Analysis/mysql主从复制.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-101">
-                <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+              <first_editor relative-caret-position="435">
+                <caret line="227" selection-start-line="227" selection-end-line="227" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/MySQL_Analysis/mysql检查工具.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="339">
+                <caret line="219" column="5" lean-forward="true" selection-start-line="217" selection-end-line="224" selection-end-column="42" />
               </first_editor>
               <second_editor />
             </state>
@@ -151,7 +156,6 @@
         <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down.sh" />
         <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/down/tasks/down_url.log" />
         <option value="$PROJECT_DIR$/MySQL_Analysis/mysql备份与回复.md" />
-        <option value="$PROJECT_DIR$/MySQL_Analysis/mysql主从复制.md" />
         <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/kube-master/templates/kube-apiserver.j2" />
         <option value="$PROJECT_DIR$/deploy-ansible/kubernetes/roles/kube-master/tasks/main.yml" />
         <option value="$PROJECT_DIR$/python/reptile/python_base.md" />
@@ -159,6 +163,7 @@
         <option value="$PROJECT_DIR$/MySQL_Analysis/mysql检查工具.md" />
         <option value="$PROJECT_DIR$/MySQL_Analysis/config/my.cnf_master" />
         <option value="$PROJECT_DIR$/MySQL_Analysis/scripts/mysql_install.sh" />
+        <option value="$PROJECT_DIR$/MySQL_Analysis/mysql主从复制.md" />
       </list>
     </option>
   </component>
@@ -575,16 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL_Analysis/mysql检查工具.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="655">
-            <caret line="226" lean-forward="true" selection-start-line="226" selection-end-line="226" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/linux_series/services/python源码安装.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -686,8 +681,18 @@
     <entry file="file://$PROJECT_DIR$/MySQL_Analysis/mysql主从复制.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-101">
-            <caret line="198" column="10" selection-start-line="198" selection-start-column="10" selection-end-line="198" selection-end-column="10" />
+          <first_editor relative-caret-position="435">
+            <caret line="227" selection-start-line="227" selection-end-line="227" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MySQL_Analysis/mysql检查工具.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="339">
+            <caret line="219" column="5" lean-forward="true" selection-start-line="217" selection-end-line="224" selection-end-column="42" />
           </first_editor>
           <second_editor />
         </state>
