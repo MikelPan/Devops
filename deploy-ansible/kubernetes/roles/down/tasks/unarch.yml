@@ -12,8 +12,8 @@
   args:
     chdir: "{{ unarch_dir }}"
     warn: no
-  with_items: "{{ kubernetes }}"
-  when: {{ item.name }} == "etcd"
+  with_items: "{{ docker_compose }}"
+  when: {{ item.name }} == "docker-compose"
 
 - name: unarch mysql binary
   shell: ls -1 {{ item.name }}-{{ item.version }}.tar.gz | xargs -n1 tar xzf

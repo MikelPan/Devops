@@ -1,0 +1,4 @@
+# to doenload kubernetes,mysql,docker,harbor,cni plugin,ca binary
+- hosts: deploy
+  roles:
+  - down
