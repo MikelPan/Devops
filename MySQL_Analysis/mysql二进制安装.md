@@ -1,3 +1,4 @@
+### mysql linux环境下安装
 #### 一、创建mysql账户和数据目录
 ```shell
 # 创建用户
@@ -59,5 +60,34 @@ ExecStart启动命令改为/usr/local/bin/mysqld --defaults-file=/data/msyql3306
 systemctl enable mysqld3306
 systemctl start mysqld3306
 ```
+### mysql win下安装
+1、下载 mysql5.7 版本 https://dev.mysql.com/downloads/mysql/
+2、创建my.ini文件
+```python
+[mysql]
+# 设置mysql客户端默认字符集
+default-character-set=utf8 
+[mysqld]
+#设置3306端口
+port = 3306 
+# 设置mysql的安装目录
+basedir=E:\downland\mysql-5.7.26-winx64
+# 设置mysql数据库的数据的存放目录
+datadir=E:\downland\mysql-5.7.26-winx64/data
+# 允许最大连接数
+max_connections=200
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+character-set-server=utf8
+# 创建新表时将使用的默认存储引擎
+default-storage-engine=INNODB
+```
+3、进入mysql bin目录下
+```python
+mysqld --install
+mysqld --initialize-insecure
+net start mysql
+sc query mysql
+```
+
 
 
