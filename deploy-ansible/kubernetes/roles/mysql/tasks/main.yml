@@ -1,0 +1,45 @@
+---
+
+
+- name: 创建 mysql 组
+  group: name=mysql gid=1000 stage=present
+
+- name: 创建 mysql 用户
+  user: name=mysql group=mysql uid=1001 uid=999 comment=‘this is mysql user‘shell=/bin/false
+
+- name: 创建 mysql 存储目录
+  file: name={{ mysql_dir }}/{{ item }} stage=directory owner=mysql group=mysql
+  with_items:
+  - mysql
+  - binlog
+  - log
+  - slowlog
+  - run
+  - tmp
+
+- name: 下载 mysql 二进制文件
+  copy: src={{ base_dir }}/bin/{{ item }}/* dest={{ bin_dir }}/{{ item }} mode=0755
+  with_itemns:
+  - mysql
+  tags: install_mysql,upgrade_mysql
+
+- name: 创建 mysql my.cnf 文件
+  template: src=my.cnf.j2 dest=/etc/my.cnf
+
+- name: 创建 mysql system.unit 文件
+  template: src=mysqld.service.j2 dest=/usr/lib/systemd/system/mysqld.service
+
+- name: enable msyql 服务
+  shell: systemctl enable msyqld
+
+- name: 初始化mysql
+  shell: "/usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql/mysql"
+
+- name: 配置 mysql ssl
+  shell: "/usr/local/mysql/bin/mysql_ssl_rsa_setup --basedir=/usr/local/mysql --datadir=/data/mysql/mysql"
+
+- name: 配置mysql环境变量
+  shell: "echo 'export PATH=$PATH:/usr/local/mysql/bin' >> /etc/profile && source /etc/profile"
+
+- name: 启动 mysql 服务
+  shell: systemctl start mysqld
