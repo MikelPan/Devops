@@ -1,0 +1,5 @@
+---
+
+mysql_base_dir: "/usr/local/msyql"
+data_mysql: "/data/mysql3306"
+mysql_user: mysql
