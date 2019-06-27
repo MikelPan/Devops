@@ -67,4 +67,3 @@ password: oracle
 ##### nacitiv导入
 
 ###### 在nacitiv中，创建目录并付给权限，将数据导入dump文件拷贝到数据目录中，在执行数据榜导入
-

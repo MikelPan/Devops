@@ -82,3 +82,11 @@ ALTER TABLE testalter_tbl DROP PRIMARY KEY
 # 增加字段类型长度
 alter table 表名 modify column 字段名 char(19)
 ```
+### 锁表
+```shell
+# 加读锁
+SET AUTOCOMMIT=0;
+lock tables user_auth_image read
+COMMIT;
+UNLOCK TABLES;
+```
