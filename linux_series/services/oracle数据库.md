@@ -75,6 +75,7 @@ password: oracle
 ##### nacitiv导入
 
 ###### 在nacitiv中，创建目录并付给权限，将数据导入dump文件拷贝到数据目录中，在执行数据榜导入
+<<<<<<< HEAD
 
 #### oracle 修改字符集
 ```shell
@@ -105,3 +106,5 @@ DROP TABLESPACE TEST INCLUDING CONTENTS AND DATAFILES;
 DROP TABLESPACE TEST_TEMP INCLUDING CONTENTS AND DATAFILES;
 ALTER TABLESPACE TEST SHRINK SPACE KEEP xxxxxM;
 ```
+=======
+>>>>>>> ea5dbc1fbe9f27e923d09d27172430dbacc51fd9

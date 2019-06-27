@@ -5,7 +5,7 @@
 
 # 主机切换为python2环境执行
 [deploy:vars]
-ansible_python_interpreter=/usr/bin/python2.7
+
 
 # etcd集群请提供如下NODE_NAME，注意etcd集群必须是1,3,5,7...奇数个节点
 [etcd]
