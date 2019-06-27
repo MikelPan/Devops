@@ -379,10 +379,13 @@ pt-online-schema-change --user=root --host=172.16.5.150  --alter "DROP COLUMN co
 # 修改字段
 pt-online-schema-change --user=root --host=172.16.5.150  --alter "MODIFY COLUMN content TINYINT NOT NULL DEFAULT 1" D=test,t=test --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --print --execute
 # 字段改名
-pt-online-schema-change --user=root --host=172.16.5.150  --alter "CHANGE COLUMN age address varchar(30)" D=test,t=test  --ask-pass  --no-check-alter --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --print --execut
+pt-online-schema-change --user=root --host=172.16.5.150  --alter "CHANGE COLUMN age address varchar(30)" D=test,t=test  --ask-pass  --no-check-alter --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --print --execute
 # 增加索引
 pt-online-schema-change --user=root --host=172.16.5.150  --alter "ADD INDEX idx_address(id_number)" D=test,t=test  --ask-pass  --no-check-alter --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --print --execute
 # 删除索引
-pt-online-schema-change --user=root --host=172.16.5.150  --alter "DROP INDEX idx_address" D=test,t=test --no-check-alter --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --print --execute
+pt-online-schema-change --user=root --host=172.16.5.150  --alter "DROP INDEX idx_address" D=test,t=test --no-check-alter --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --no-drop-old-table --print --execute
+# 修改存储引擎
+pt-online-schema-change --user=root --host=192.168.0.12  --alter "ENGINE = InnoDB" D=society_insurance_storage,t=user --ask-pass --no-check-alter --no-check-replication-filters --alter-foreign-keys-method=auto --recursion-method=none --no-drop-old-table --print --execute
 ```
+
 

@@ -55,4 +55,49 @@ docker run -d \
 # 在需要推送镜像的主机中
 拷贝证书到dockcer配置文件中 /etc/docker/certs.d/plyx.site/plyx.site.crt
 systemctl restart docker
+# 通过http方式安装
+# 创建config.yml 文件
+version: 0.1
+log:
+  fields:
+    service: registry
+storage:
+  delete:
+    enabled: true
+  cache:
+    blobdescriptor: inmemory
+  filesystem:
+    rootdirectory: /var/lib/registry
+    maxthreads: 100
+  maintenance:
+    uploadpurging:
+      enabled: true
+      age: 168h
+      interval: 24h
+      dryrun: false
+    readonly:
+      enabled: false
+auth:
+  htpasswd:
+    realm: basic-realm
+    path: /auth/htpasswd
+http:
+  addr: :5000
+  headers:
+    X-Content-Type-Options: [nosniff]
+health:
+    storagedriver:
+        enabled: true
+        interval: 10s
+        threshold: 3
+# 启动docker
+docker run -d \
+  --privileged \
+  --restart=always \
+  -p 5000:5000 \
+  --name registry \
+  -v $basepath/config.yml:/etc/docker/registry/config.yml \
+  -v `pwd`/htpasswd:/auth/htpasswd \
+  -v /home/registry/:/var/lib/registry/ \
+  registry:2
 ```

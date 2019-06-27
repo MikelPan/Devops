@@ -50,7 +50,7 @@ create database db1
 ```  
 - 备份单表
 ```mysql
-mysqldump --single-transcation -uroot -proot123 db1 t >t.sql
+mysqldump --single-transaction -uroot -proot123 db1 t >t.sql
 ```
 - 恢复单表
 ```mysql

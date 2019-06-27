@@ -6,7 +6,7 @@
 # 文件名称： ansible_message.py
 # 开发工具： PyCharm
 
-from subprocess import Popen,PIPE
+from subprocess import Popen, PIPE
 import re
 
 command = 'ansible 192.168.174.10 -m setup'
@@ -41,5 +41,5 @@ def data(result):
 
 if __name__ == '__main__':
     result_dict = {}
-    result = handle_command_message(command)
+    result = get_hosts_message(command)
     data(result)

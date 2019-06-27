@@ -46,8 +46,8 @@ flush privileges
 ##### 六、mysql多实例
 ```shell
 # 初始化
-mysqld --defaults-file=/data/mysql3306/config/my.cnf --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql3306/mysql
-mysql_ssl_rsa_setup --basedir=/usr/local/mysql --datadir=/data/mysql3306/mysql
+mysqld --defaults-file=/data/mysql3307/config/my.cnf --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql3307/mysql
+mysql_ssl_rsa_setup --basedir=/usr/local/mysql --datadir=/data/mysql3307/mysql
 mysqld --defaults-file=/data/mysql3307/config/my.cnf --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/data/mysql3307/mysql
 mysql_ssl_rsa_setup --basedir=/usr/local/mysql --datadir=/data/mysql3307/mysql
 # 启动
@@ -88,6 +88,9 @@ mysqld --initialize-insecure
 net start mysql
 sc query mysql
 ```
+
+
+
 
 
 

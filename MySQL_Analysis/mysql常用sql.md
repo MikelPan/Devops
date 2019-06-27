@@ -17,6 +17,10 @@ IF (MOD(SUBSTRING(id_number,17,1),2),'男','女') as "user_sex"
 select * from table where clounme REGEXP '[A-Z]'
 # 识别大小写
 select * from test where id_number like 'x%'
+# 查看字段
+select COLUMN_NAME,DATA_TYPE,COLUMN_COMMENT from information_schema.columns  where table_name='export' and table_schema='data_import'
+# 查询字段是否存在
+select * from information_schema.columns where table_name = 'export' and column_name = '创业市'
 ```
 ### 二、去重查询
 ```shell
@@ -81,4 +85,29 @@ ALTER TABLE tbl_name ADD FULLTEXT index_name (column_list)
 ALTER TABLE testalter_tbl DROP PRIMARY KEY
 # 增加字段类型长度
 alter table 表名 modify column 字段名 char(19)
+```
+### 五、查询数据库
+```shell
+# 查询数据库
+show status like 'Table%';select * from information_schema.PROCESSLIST ORDER BY  time desc;show status like '%connect%'
+# 查询语句
+EXPLAIN select operationl0_.id as id1_23_0_, operationl0_.action as action2_23_0_, operationl0_.create_time as create_t3_23_0_, operationl0_.module as module4_23_0_, operationl0_.new_value as new_valu5_23_0_, operationl0_.old_value as old_valu6_23_0_, operationl0_.relevance_id as relevanc7_23_0_, operationl0_.remark as remark8_23_0_, operationl0_.url as url9_23_0_, operationl0_.user_id as user_id10_23_0_, operationl0_.user_name as user_na11_23_0_ from operation_log operationl0_ where operationl0_.id=1141181855320596481
+```
+### 六、权限添加
+```shell
+# 存储过程权限添加
+grant select on mysql.proc to developer@'xxxx'
+grant create routine on testdb.* to developer@’192.168.0.%’; -- now, can show procedure status
+grant alter routine on testdb.* to developer@’192.168.0.%’; -- now, you can drop a procedure
+grant execute on testdb.* to developer@’192.168.0.%’;
+# mysql 修改密码（5.7）
+update user set authentication_string=PASSWORD("Runsdata@2017#user") where user="society_user";
+ALTER USER 'society_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Runsdata@2017#user';
+```
+### 七、创建临时表恢复数据
+```shell
+create table new_table like old_table
+insert into new_table select * from old_table
+rename 
+
 ```
