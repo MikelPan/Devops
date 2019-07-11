@@ -189,3 +189,20 @@ blkid
 vim /etc/fstab
 UUID=f4bc2e98-1c5f-4792-84ed-6ecd5e94ea9b /data xfs defaults 0 0
 ``` 
+#### 1.5、lv缩容
+```shell
+# 查看挂载
+mount
+# 卸载lv
+umount /dev/centos-home
+e2fsck -f /dev/centos-home
+# 缩减逻辑边界
+resize2fs /dev/centos-home  5G
+# 缩减物理边界
+lvchange  -a n /dev/centos-home
+lvreduce -L 5G /dev/centos-home
+lvchange  -a y /dev/centos-home
+e2fsck  -f /dev/centos-home
+# 挂载
+mount /dev/centos-home /home
+```

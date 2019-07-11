@@ -109,9 +109,7 @@ ALTER USER 'society_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Runsdata
 ```shell
 create table new_table like old_table
 insert into new_table select * from old_table
-rename 
-
-=======
+rename table old_name to n
 ### 锁表
 ```shell
 # 加读锁
@@ -119,5 +117,4 @@ SET AUTOCOMMIT=0;
 lock tables user_auth_image read
 COMMIT;
 UNLOCK TABLES;
->>>>>>> ea5dbc1fbe9f27e923d09d27172430dbacc51fd9
 ```

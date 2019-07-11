@@ -241,7 +241,7 @@ Restart=on-failure
 RestartPreventExitStatus=1
 
 PrivateTmp=false
-EOF
+EOFmysqld
 #### 二、mysql二进制下载
 yum install -y wget -c && wget https://cdn.mysql.com//Downloads/MySQL-5.7/mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz -P /root/sofeware
 tar zxf mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz -C /usr/local/src
@@ -256,5 +256,5 @@ mysql_ssl_rsa_setup --basedir=/usr/local/mysql --datadir=/data/mysql3306/mysql
 #### 开机启动
 cp /data/mysql3306/config/mysqld.service /usr/lib/systemd/system/mysqld.service
 systemctl enable mysqld
-systemctl start mysqld
+systemctl start
 
