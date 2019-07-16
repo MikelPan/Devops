@@ -13,5 +13,14 @@ kubectl create secret docker-registry seract-name \
   --docker-username=test \
   --docker-password=123 \
   --docker-email=ylw@fjhb.cn
+# 生成docker registry
+apiVersion: v1
+kind: Secret
+metadata:
+  name: seract-name
+  namespace: delopment
+data:
+    .dockerconfigjson: {base64 -w 0 ~/.docker/config.json}
+type: kubernetes.io/dockerconfigjson
 ```
 
