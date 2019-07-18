@@ -86,7 +86,6 @@ ALTER TABLE testalter_tbl DROP PRIMARY KEY
 # 增加字段类型长度
 alter table 表名 modify column 字段名 char(19)
 ```
-<<<<<<< HEAD
 ### 五、查询数据库
 ```shell
 # 查询数据库
@@ -109,9 +108,7 @@ ALTER USER 'society_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Runsdata
 ```shell
 create table new_table like old_table
 insert into new_table select * from old_table
-rename 
-
-=======
+rename oldname to newname
 ### 锁表
 ```shell
 # 加读锁
@@ -119,5 +116,4 @@ SET AUTOCOMMIT=0;
 lock tables user_auth_image read
 COMMIT;
 UNLOCK TABLES;
->>>>>>> ea5dbc1fbe9f27e923d09d27172430dbacc51fd9
 ```

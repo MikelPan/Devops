@@ -194,3 +194,5 @@ cat eat
 gu gu jiao
 dog eat
 ```
+**多态**
+

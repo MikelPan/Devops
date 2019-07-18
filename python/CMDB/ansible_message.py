@@ -6,10 +6,10 @@
 # 文件名称： ansible_message.py
 # 开发工具： PyCharm
 
-<<<<<<< HEAD
+
 from subprocess import Popen, PIPE
 import re
-=======
+
 import os,sys,json,shutil,re
 import ansible.constants as C
 C.HOST_KEY_CHECKING = False
@@ -107,9 +107,6 @@ def ansible_command():
                     elif k == 'default_ipv4':
                         print(dict4['default_ipv4']['address'])
 
->>>>>>> ea5dbc1fbe9f27e923d09d27172430dbacc51fd9
-
-
 show_list = [('fqdn', u'主机名'),
              ('domain', u'域名'),
              ('uptime', u'运行时间'),
@@ -132,10 +129,7 @@ def data(result):
 
 if __name__ == '__main__':
     result_dict = {}
-<<<<<<< HEAD
     result = get_hosts_message(command)
-=======
     result = ansible_command()
->>>>>>> ea5dbc1fbe9f27e923d09d27172430dbacc51fd9
     data(result)
 

@@ -71,3 +71,12 @@ rmvirtualenv demo
 6、离开虚拟环境
 deactivate
 ```
+**2.3、windows 安装virtualenvwrapper**
+```shell
+# 安装
+pip install virtualenvwrapper-win
+# 添加环境变量
+变量名 WORKON_HOME 变量值 自定义的路径
+# 激活
+进去python安装目录下的 scripts路径下 双击 mkvirtualenv.bat
+```

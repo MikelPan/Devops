@@ -14,7 +14,7 @@ http_code = {
     '资源未找到': 404,
     '网关超时': 504,
     '服务不可用': 503,
-    '无效的请求': 502
+    '请求不可达': 502
 }
 
 request_time = {
@@ -25,26 +25,34 @@ request_time = {
 }
 
 class CkTools(object):
-    def __init__(self):
+    def __init__(self, svc_name):
         self.http_code = http_code
         self.request_time = request_time
+        self.svc_name = svc_name
 
-    def get_svc(self, svcname):
-        svcname = sys.argv[1]
-        svc = os.popen("kubectl get pods | awk '{print $1}' | cut -f1,2,3 -d '-' | grep \"%s\" " %svcname).read()
+    def get_svc(self):
+        svc = os.popen("kubectl get pods | awk '{print $1}' | cut -f1,2,3 -d '-' | grep \"%s\" " %self.svc_name).read()
         return svc
 
     def get_ip(self, svcname):
-        svc = get_svc(self, svcname)
+        svc = CkTools.get_svc()
         ip = os.popen("kubectl get pods -o wide | grep \"%s\" |awk '{print $6}'| sed -n '1p'" %svc).read()
         return ip
 
     def get_port(self, svcname):
-        svc = get_svc(self, svcname)
+        svc = CkTools.get_svc()
         port = os.popen("kubectl get services | grep \"%s\" | awk '{print $5}'| cut -f1 -d '/' " %svc).read()
         return port
 
     def check_registered(self, svcname):
+        pass
+
+    def main(self):
+        pass
+
+if __name__ == "__main__":
+    pass
+
 
 
 

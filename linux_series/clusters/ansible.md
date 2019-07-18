@@ -23,11 +23,11 @@ vim requirements.yml
 --------------------------------------------start-----------------------------------------
 # Nginx 1.10
 - src: williamyeh.nginx
- path:  path: /root/ansible-playbook
+ path:  /root/ansible-playbook
 
 # PHP 7
 - src: chusiang.php7
- path:  path: /root/ansible-playbook
+ path:  /root/ansible-playbook
 
 # MySQL 5.6
 - src: geerlingguy.mysql

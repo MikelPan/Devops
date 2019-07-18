@@ -5,7 +5,18 @@ alias acme.sh=~/.acme.sh/acme.sh
 ```
 ### 证书签发
 ```shell
+# 使用http方式
 acme.sh --issue -d esofar.cn -d www.esofar.cn -w /home/wwwroot/esofar.cn
+# 使用dns 方式
+acme.sh --issue -d *.clsn.io -d clsn.io --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please # 添加A记录
+dig -t txt  _acme-challenge.clsn.io @8.8.8.8 # 验证证书
+acme.sh --renew  -d *.clsn.io -d clsn.io --dns --yes-I-know-dns-manual-mode-enough-go-ahead-please # 生成证书
+
+# 使用dns api方式
+api 参考文档 https://github.com/Neilpang/acme.sh/tree/master/dnsapi
+export Ali_Key="ali-key"
+export Ali_Secret="ali-secret"
+acme.sh --issue --dns dns_ali -d plyx.site -d *.plyx.site
 ```
 
 #### 说明参数的含义：
@@ -47,4 +58,8 @@ acme.sh --upgrade
 acme.sh  --upgrade  --auto-upgrade
 # 关闭自动更新
 acme.sh  --upgrade  --auto-upgrade 0
+```
+定时任务更新
+```shell
+22 0 * * * "/root/.acme.sh"/acme.sh --cron --home "/root/.acme.sh" > /dev/null
 ```

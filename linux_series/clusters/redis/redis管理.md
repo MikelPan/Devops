@@ -36,7 +36,7 @@ pidfile        /var/run/redis_6379.pid
 requirepass    redis
 vim /usr/local/redis/redis.conf  (从)
 port 6380
-bind 172.16.5.2127.0.0.1
+bind 172.16.5.2 127.0.0.1
 daemonize yes
 pidfile        /var/run/redis_6380.pid
 masterauth     redis
@@ -45,7 +45,7 @@ redis-cli -a redis
 127.0.0.1:6379>set name redis-master
 127.0.0.1:6379> info repliaction
 # 登录客户端（从）
-redis-cli-aredis
+redis-cli -a redis
 # 配置主从
 127.0.0.1:6380> slaveof 127.0.0.1 6379
 127.0.0.1:6380> info repliaction
@@ -85,7 +85,3 @@ appendfsync everysec   // 每秒写入磁盘一次，性能和持久化方面做
 
 \#appendfsync no          // 完全依赖os，性能最好，持久化没有保证
 
-```shell
-hostPath:
-​   path: /nfs_cg/security/key
-```

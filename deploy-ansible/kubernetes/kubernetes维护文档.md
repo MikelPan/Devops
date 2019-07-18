@@ -1,3 +1,4 @@
+#### 查看etcd 中flanal信息
 https://10.113.184.66:2379,https://10.113.184.67:2379,https://10.113.184.68:2379
 etcdctl --endpoints=https://10.113.184.66:2379,https://10.113.184.67:2379,https://10.113.184.68:2379 \
   --ca-file=/etc/kubernetes/ssl/ca.pem \
@@ -35,3 +36,23 @@ nodeSelector:
   
 #### pv temring无法删除
 kubectl patch pvc pvc_name -p '{"metadata":{"finalizers":null}}'
+
+#### helm的使用
+##### 安装helm
+
+##### 创建char
+```shell
+helm create mychart
+rm -rf mychart/templates/*.*
+```
+##### 创建模板
+```shell
+cat > mychart/templates/configmap.yaml <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{.Release.Name}}-configmap
+data:
+  myvalue: "Hello World"
+EOF
+```

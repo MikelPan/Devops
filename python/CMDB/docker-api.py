@@ -32,7 +32,7 @@ if __name__ == "__main__":
     image_name = sys.argv[3]
     tag_version = sys.argv[4]
     client = docker.from_env()
-    main(sys.argv[1],sys.argv[2],sys.argv[3],sys.argv[4])
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
 
 
