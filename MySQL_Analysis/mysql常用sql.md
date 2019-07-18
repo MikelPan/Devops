@@ -108,7 +108,11 @@ ALTER USER 'society_user'@'%' IDENTIFIED WITH mysql_native_password BY 'Runsdata
 ```shell
 create table new_table like old_table
 insert into new_table select * from old_table
+<<<<<<< HEAD
 rename oldname to newname
+=======
+rename table old_name to n
+>>>>>>> 16ebcf3581b7fa80ba295abd20f913276d4b5b1f
 ### 锁表
 ```shell
 # 加读锁

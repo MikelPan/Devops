@@ -20,10 +20,14 @@ source /etc/profile
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.0.1-linux-x86_64.tar.gz
 tar zxvf elasticsearch-7.0.1-linux-x86_64.tar.gz -C /usr/local/src
 mv /usr/local/src/elasticsearch-7.0.1 /usr/lcoal/elasticsearch-7.0.1
-# 创建账户
+# 创建账户，目录
 groupadd elastic
 useradd -r -g rlastic -s /bin/false elastic
 chmod -R elastic. /usr/lcoal/elasticsearch-7.0.1
+mkdir /var/lib/elasticsearch
+mkdir /var/log/elasticsearch
+chmod -R elastic. /var/lib/elasticsearch
+chmod -R elastic. /var/log/elasticsearch
 # 配置环境变量
 cat >> /etc/profile <<EOF
 echo "PATH=$PATH:/usr/local/elasticsearch-7.0.1/bin" >> /etc/profile
@@ -34,9 +38,11 @@ vim /usr/local/elasticsearch-7.0.1/config/elasticsearch.yml
 ------------------------------------start----------------------------------------------
 network.host: 0.0.0.0
 http.port: 9200
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
 -------------------------------------end-----------------------------------------------
 # 启动elastic
-elasticsearch
+elasticsearch -d
 ```
 #### 三、安装kibana
 ```shell
@@ -52,7 +58,7 @@ server.host: "0.0.0.0"
 kibana.index: ".kibana"
 -------------------------------------------end-------------------------------------------
 # 启动kibana
-/usr/local/src/kibana-7.0.1/bin/kibana
+/usr/local/src/kibana-7.0.1/bin/kibana &
 ```
 #### 四、安装filebeat
 ```shell
@@ -72,14 +78,33 @@ filebeat.prospectors:
   multiline.pattern: ^\[
   multiline.negate: true
   multiline.match: after
+  
+  # json格式
+  json.keys_under_root: true
+  json.add_error_key: true
+  json.message_key: log
+  json.overwrite_keys: true
+  
+  # 标识字段
+  fields:
+    log_type: gateway
+   
 setup.kibana:
   host: "localhost:5601"
+  
+# 输出使用自定义索引名称
+setup.template.name: "cobee"
+setup.template.pattern: "cobee-*"
+
+# 数据输出目标地址
 output.elasticsearch:
   hosts: ["localhost:9200"]
+  index: "xhg-ms-%{+yyyy.MM.dd}"
 --------------------------------------end---------------------------------------------
 # 启动filebeat
 ./usr/local/filebeat-7.0.1/filebeat -c /usr/local/filebeat-7.0.1/filebeat.yml
 ```
+
 
 
 
