@@ -1,0 +1,19 @@
+{
+    "CN": "traefix",
+    "hosts": [
+      "*.plyx.site"
+    ],
+    "key": {
+        "algo": "rsa",
+        "size": 2048
+    },
+    "names": [
+        {
+            "C": "CN",
+            "ST": "GudongDong",
+            "L": "ShenZhen",
+            "O": "k8s",
+            "OU": "System"
+        }
+    ]
+}

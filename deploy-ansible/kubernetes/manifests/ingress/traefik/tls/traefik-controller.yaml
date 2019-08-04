@@ -87,6 +87,8 @@ spec:
           - name: https
             containerPort: 443
             hostPort: 443
+          - name: admin
+            containerPort: 8080
 ---
 kind: Service
 apiVersion: v1

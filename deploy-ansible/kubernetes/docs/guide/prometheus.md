@@ -35,7 +35,7 @@ $ cd /etc/ansible/manifests/prometheus
 # 安装 prometheus chart，如果你的helm安装没有启用tls证书，请忽略--tls参数
 $ helm install --tls \
         --name monitor \
-        --namespace monitoring \
+        --namespace kube-system \
         -f prom-settings.yaml \
         -f prom-alertsmanager.yaml \
         -f prom-alertrules.yaml \
@@ -43,7 +43,7 @@ $ helm install --tls \
 # 安装 grafana chart
 $ helm install --tls \
 	--name grafana \
-	--namespace monitoring \
+	--namespace kube-system \
 	-f grafana-settings.yaml \
 	-f grafana-dashboards.yaml \
 	grafana
