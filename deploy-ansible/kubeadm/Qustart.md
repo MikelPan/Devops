@@ -32,8 +32,10 @@ EOF
 ##### 安装kubeadm
 ```shell
 # 下载离线包
+yum install -y wget
 wget -c https://sealyun.oss-cn-beijing.aliyuncs.com/free/kube1.15.0.tar.gz
 wget -c https://github.com/fanux/sealos/releases/download/v2.0.4/sealos
+chmod +x sealos
 # 安装HPA
 sealos init --master 192.168.174.134 \
     --master 192.168.0.3 \

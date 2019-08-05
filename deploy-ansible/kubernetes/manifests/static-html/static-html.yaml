@@ -1,0 +1,54 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: static-html
+  labels:
+    app: static-html
+  namespace: kube-system
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: static-html
+    spec:
+      terminationGracePeriodSeconds: 60
+      volumes:
+      - name: config
+        configMap:
+          name: static-html-config
+          items:
+          - key: config-file
+            path: default.conf
+      containers:
+      - name: static-html
+        image: openresty
+        volumeMounts:
+        - name: config
+          mountPath: /etc/nginx/conf.d
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 1
+            memory: 2Gi
+          requests:
+            cpu: 10m
+            memory: 20Mi
+      imagePullSecrets:
+      - name: registrykey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-html
+  labels:
+    app: static-html
+  namespace: runsdata
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+    name: http
+  selector:
+    app: static-html

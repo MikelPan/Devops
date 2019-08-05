@@ -19,5 +19,18 @@ export PATH=/usr/local/bin:$PATH
 cfssl gencert -initca ca-csr.json | cfssljson -bare ca
 # 签发traefix tls证书
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes traefix-csr.json | cfssljson -bare traefix
-
+```
+##### 创建secret
+新建/ssl目录,并将生成的证书改名称为tls.crt和tls.key
+```shell
+cp traefik.pem /ssl/tls.crt 
+cp traefik-key.pem /ssl/tls.key
+kubectl delete secret traefix-cert -n kube-system
+kubectl create secret tls traefix-cert --cert=tls.crt --key=tls.key -n kube-system
+```
+##### 创建traefix-configmap
+在tarefik 启动脚本目录下，创建traefik.toml文件并创建configmap traefik-conf
+```shell
+kubectl delete configmap traefik-conf -n kube-system
+kubectl create configmap traefix-conf --from-file=traefik.toml -n kube-system
 ```
