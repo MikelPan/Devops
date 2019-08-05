@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -14,3 +15,21 @@ spec:
           servicePort: 80
   tls:
   - secretName: traefik-cert
+=======
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: web-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: hello.test.com
+    http:
+      paths:
+      - backend:
+          serviceName: test-hello
+          servicePort: 80
+  tls:
+  - secretName: traefik-cert
+>>>>>>> 24482398c1b99671d6bbdb310f31beb0d44084d5

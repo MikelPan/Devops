@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -15,3 +16,23 @@ spec:
           serviceName: kubernetes-dashboard
           servicePort: 443
 
+=======
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name:  admin-ingress
+  namespace: kube-system
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+  - host: dashboard.plyx.site
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 443
+
+
+>>>>>>> 24482398c1b99671d6bbdb310f31beb0d44084d5

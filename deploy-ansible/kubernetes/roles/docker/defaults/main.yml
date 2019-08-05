@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 国内镜像加速
 
 REG_MIRRORS:
@@ -16,3 +17,31 @@ STORAGE_DIR: "/var/lib/docker"
 
 # 开启Restful API
 ENABLE_REMOTE_API: false
+=======
+# 国内镜像加速
+
+REG_MIRRORS:
+  - "https://dockerhub.azk8s.cn"
+  - "https://docker.mirrors.ustc.edu.cn"
+
+# docker日志相关
+
+LOG_DRIVER: "json-file"
+LOG_LEVEL: "warn"
+LOG_MAX_SIZE: "10m"
+LOG_MAX_FILE: 3
+
+# docker容器存储目录
+STORAGE_DIR: "/var/lib/docker"
+
+# 开启Restful API
+ENABLE_REMOTE_API: false
+sealos init --master 192.168.174.134 \
+    --master 192.168.174.135 \
+    --node 192.168.174.134 \
+    --node 192.168.174.135 \                 
+    --user root \                        
+    --passwd 123456 \      
+    --version v1.15.0 \
+    --pkg-url /root/kube1.15.0.tar.gz   
+>>>>>>> 24482398c1b99671d6bbdb310f31beb0d44084d5
