@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -159,7 +158,7 @@ kind: ServiceAccount
 metadata:
   name: traefik-ingress-controller
   namespace: kube-system
-=======
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -322,4 +321,4 @@ kind: ServiceAccount
 metadata:
   name: traefik-ingress-controller
   namespace: kube-system
->>>>>>> 24482398c1b99671d6bbdb310f31beb0d44084d5
+
