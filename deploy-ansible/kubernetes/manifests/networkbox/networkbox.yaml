@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  namespace: runsdata
+  name: networkbox
+  labels:
+    k8s-app: networkbox
+spec:
+  selector:
+    matchLabels:
+      name: networkbox
+  template:
+    metadata:
+      labels:
+        name: networkbox
+    spec:
+      containers:
+      - name: networkbox
+        image: docker.runsdata.com/networkbox
+        imagePullPolicy: IfNotPresent

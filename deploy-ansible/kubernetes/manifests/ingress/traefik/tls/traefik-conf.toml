@@ -1,0 +1,17 @@
+insecureSkipVerify = true
+    defaultEntryPoints = ["http", "https"]
+    [entryPoints]
+      [entryPoints.http]
+        address = ":80"
+        ### 配置http 强制跳转 https
+        #[entryPoints.http.redirect]
+        #  entryPoint = "https"
+        ### 配置只信任trustedIPs传递过来X-Forwarded-*，默认全部信任；为了防止客户端地址伪造，需开启这个
+        #[entryPoints.http.forwardedHeaders]
+        #  trustedIPs = ["10.1.0.0/16", "172.20.0.0/16", "192.168.1.3"]
+      [entryPoints.https]
+        address = ":443"
+        [entryPoints.https.tls]
+          [[entryPoints.https.tls.certificates]]
+            CertFile = "/ssl/tls.crt"
+            KeyFile = "/ssl/tls.key"
