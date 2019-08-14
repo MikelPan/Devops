@@ -1,6 +1,24 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  name:  kubernetes-dashboard
+  namespace: kube-system
+  annotations:
+    traefik.ingress.kubernetes.io/redirect-entry-point: https
+spec:
+  rules:
+  - host: dashboard.test.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 443
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
   name:  admin-ingress
   namespace: kube-system
   annotations:
@@ -14,5 +32,4 @@ spec:
         backend:
           serviceName: kubernetes-dashboard
           servicePort: 443
-
 

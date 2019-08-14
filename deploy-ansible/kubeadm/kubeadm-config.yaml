@@ -1,0 +1,35 @@
+apiServer:
+  certSANs:
+  - 172.18.12.11
+  - 127.0.0.1
+  - 120.79.205.76
+  - apiserver.cluster.local
+  extraArgs:
+    authorization-mode: Node,RBAC
+  timeoutForControlPlane: 4m0s
+apiVersion: kubeadm.k8s.io/v1beta2
+certificatesDir: /etc/kubernetes/pki
+clusterName: kubernetes
+controllerManager: {}
+dns:
+  type: CoreDNS
+etcd:
+  local:
+    dataDir: /var/lib/etcd
+imageRepository: registry.aliyuncs.com/google_containers
+kind: ClusterConfiguration
+kubernetesVersion: v1.15.0
+controlPlaneEndpoint: apiserver.cluster.local:6443
+networking:
+  dnsDomain: cluster.local
+  podSubnet: 10.0.0.0/16
+  serviceSubnet: 10.96.0.0/12
+scheduler: {}
+---
+apiVersion: kubeproxy.config.k8s.io/v1alpha1
+kind: KubeProxyConfiguration
+mode: ipvs
+ipvs:
+        excludeCIDRs: 
+        - 192.168.248.135/32
+

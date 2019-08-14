@@ -29,6 +29,15 @@ cat >> /etc/docker/daemon.json <<EOF
 }
 EOF
 ```
+##### ubuntu安装
+```shell
+sudo apt-get update
+sudo apt-get -y install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get -y update
+sudo apt-get -y install docker-ce
+```
 ##### 安装kubeadm
 ```shell
 # 下载离线包
@@ -46,8 +55,8 @@ sealos init --master 192.168.174.134 \
     --version v1.14.1 \
     --pkg-url /root/kube1.14.1.tar.gz  
 # 安装单节点
-sealos init --master 192.168.174.134 \
-    --node 192.168.174.134 \                 
+sealos init --master 192.168.248.135 \
+    --node 192.168.248.135 \                 
     --user root \                        
     --passwd 123456 \      
     --version v1.15.0 \
