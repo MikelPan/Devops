@@ -1,4 +1,5 @@
-#配置磁盘
+### 配置磁盘
+```shell
 lvremote /dev/data/datalv
 lvremote /dev/data/worklv
 lvcreate /dev/data/worklv
@@ -16,10 +17,12 @@ mount /dev/data/worklv /apps
 blikd /dev/data/datalv 
 echo "UUID=  /data  xfs  defaults 1 1" >> /etc/fstab
 echo "UUID=  /apps  xfs  defaults 1 1" >> /etc/fstab
+```
 
 
+### 配置主机名
+```shell
 
-#配置主机名
 hostnamectl set-hostname k8s-master01
 hostnamectl set-hostname k8s-master02
 hostnamectl set-hostname k8s-master03
@@ -31,39 +34,58 @@ cat >> /etc/hosts << EOF
 192.168.92.12 k8s-master03
 192.168.92.13 k8s-node01
 EOF
+```
 
-# 开启firewalld防火墙并允许所有流量
+###  开启firewalld防火墙并允许所有流量
+```shell
 systemctl start firewalld && systemctl enable firewalld
 firewall-cmd --set-default-zone=trusted
 firewall-cmd --complete-reload
-# 关闭selinux
+```
+### 关闭selinux
+```shell
 sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config && setenforce 0
+```
 
-#关闭swap
+### 关闭swap
+```shell
 swapoff -a
 yes | cp /etc/fstab /etc/fstab_bak
 cat /etc/fstab_bak | grep -v swap > /etc/fstab
+```
 
-# 安装chrony：
+###  安装chron
+```shell
 yum install -y chrony
 cp /etc/chrony.conf{,.bak}
-# 注释默认ntp服务器
+```
+###  注释默认ntp服务器
+```shell
 sed -i 's/^server/#&/' /etc/chrony.conf
-# 指定上游公共 ntp 服务器
+```
+###  指定上游公共 ntp 服务器
+```shell
 cat >> /etc/chrony.conf << EOF
 server 0.asia.pool.ntp.org iburst
 server 1.asia.pool.ntp.org iburst
 server 2.asia.pool.ntp.org iburst
 server 3.asia.pool.ntp.org iburst
 EOF
+```
 
-# 设置时区
+### 设置时区
+```shell
 timedatectl set-timezone Asia/Shanghai
-# 重启chronyd服务并设为开机启动：
+```
+### 重启chronyd服务并设为开机启动：
+```shell
 systemctl enable chronyd && systemctl restart chronyd
+```
 
-#验证,查看当前时间以及存在带*的行
+### 验证,查看当前时间以及存在带*的行
+```shell
 timedatectl && chronyc sources
+
 
 在所有的Kubernetes节点执行以下脚本（若内核大于4.19替换nf_conntrack_ipv4为nf_conntrack）:
 cat > /etc/sysconfig/modules/ipvs.modules <<EOF
@@ -87,8 +109,10 @@ net.ipv4.ip_forward = 1
 vm.swappiness=0
 EOF
 sysctl --system
+```
 
-# 安装依赖软件包
+###  安装依赖软件包
+```shell
 yum install -y yum-utils device-mapper-persistent-data lvm2
 
 # 添加Docker repository，这里改为国内阿里云yum源
@@ -123,7 +147,9 @@ mkdir -p /etc/systemd/system/docker.service.d
 
 # 重启docker服务
 systemctl daemon-reload && systemctl restart docker && systemctl enable docker
-
+```
+### 创建ha
+```shell
 mkdir -p /data/lb
 cat > /data/lb/start-haproxy.sh << "EOF"
 #!/bin/bash
@@ -163,6 +189,10 @@ docker run -itd --restart=always --name=Keepalived-K8S \
 EOF
 
 sh /data/lb/start-haproxy.sh && sh /data/lb/start-keepalived.sh
+```
+
+### 安装kubeadm
+```shell
 
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -264,3 +294,4 @@ kubectl -n kube-system exec etcd-k8s-master01 -- etcdctl \
 	--cert-file=/etc/kubernetes/pki/etcd/server.crt \
 	--key-file=/etc/kubernetes/pki/etcd/server.key cluster-health
 
+```
