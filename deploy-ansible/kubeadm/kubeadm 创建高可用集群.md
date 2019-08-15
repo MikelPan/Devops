@@ -1,3 +1,24 @@
+#配置磁盘
+lvremote /dev/data/datalv
+lvremote /dev/data/worklv
+lvcreate /dev/data/worklv
+lvcreate /dev/data/datalv
+
+mkfs -t xfs /dev/data/datalv
+mkfs -t xfs /dev/data/worklv
+
+mkdir /data
+mkdir /apps
+
+mount /dev/data/datalv /data
+mount /dev/data/worklv /apps
+
+blikd /dev/data/datalv 
+echo "UUID=  /data  xfs  defaults 1 1" >> /etc/fstab
+echo "UUID=  /apps  xfs  defaults 1 1" >> /etc/fstab
+
+
+
 #配置主机名
 hostnamectl set-hostname k8s-master01
 hostnamectl set-hostname k8s-master02
