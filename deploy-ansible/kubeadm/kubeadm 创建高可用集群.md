@@ -308,5 +308,10 @@ kubectl -n kube-system exec etcd-k8s-master01 -- etcdctl \
 	--cert-file=/etc/kubernetes/pki/etcd/server.crt \
 	--key-file=/etc/kubernetes/pki/etcd/server.key cluster-health
 
+# master节点允许调度
+kubectl taint node k8s-master node-role.kubernetes.io/master-
+# master 节点不许与调度
+kubectl taint node k8s-master node-role.kubernetes.io/master=""
+
 ```
 

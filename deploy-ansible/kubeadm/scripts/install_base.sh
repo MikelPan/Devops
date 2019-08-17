@@ -2,10 +2,10 @@
 hostnamectl set-hostname k8s-master01
 #修改/etc/hosts
 cat >> /etc/hosts << EOF
-172.18.28.157 k8s-master01
-172.18.28.158 k8s-master02
-172.18.28.159 k8s-master03
-172.18.28.160 k8s-node01
+172.10.28.17 k8s-master01
+172.10.28.18 k8s-master02
+172.10.28.19 k8s-master03
+172.10.28.10 k8s-node01
 EOF
 ###  开启firewalld防火墙并允许所有流量
 systemctl disable firewalld && systemctl stop firewalld
