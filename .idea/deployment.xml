@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="root@www.plyx.site:22">
+  <component name="PublishConfigData" autoUpload="Always" serverName="root@192.168.174.134:22">
     <serverData>
-      <paths name="root@192.168.174.10:22">
+      <paths name="root@127.0.0.1:12222">
         <serverdata>
           <mappings>
-            <mapping deploy="/root/Pyprojects/projects/Devops" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="root@www.plyx.site:22">
+      <paths name="root@192.168.174.134:22">
         <serverdata>
           <mappings>
-            <mapping deploy="/python/PycharmProject/Devops" local="$PROJECT_DIR$" />
+            <mapping deploy="/" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
