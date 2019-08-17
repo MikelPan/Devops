@@ -1,5 +1,7 @@
 ### 配置磁盘
 ```shell
+pvcreate /dev/vdb1
+vgcreate data /dev/vdb1
 lvremote /dev/data/datalv
 lvremote /dev/data/worklv
 lvcreate /dev/data/worklv
@@ -288,6 +290,18 @@ kubeadm join 192.168.92.30:6444 --token abcdef.0123456789abcdef \
 kubeadm join 192.168.92.30:6444 --token abcdef.0123456789abcdef \
     --discovery-token-ca-cert-hash sha256:c0a1021e5d63f509a0153724270985cdc22e46dc76e8e7b84d1fbb5e83566ea8
 
+# 修改msater其他节点的ip指向
+sed -i 's@server: https://xxxxx:6443@server: https://xxxx:8443@g' /etc/kubernetes/{admin.conf,kubelet.conf,kube-controller-manager.conf,kube-scheduler.conf}
+
+systemctl daemon-reload
+systemctl  restart docker kubelet
+
+# 修改node节点的ip指向
+sed -i 's@server: https://xxxx:6443@server: https://apiserver.cluster.local:6443@g' /etc/kubernetes/admin.conf
+
+systemctl daemon-reload 
+systemctl  restart docker kubelet
+
 kubectl -n kube-system exec etcd-k8s-master01 -- etcdctl \
 	--endpoints=https://192.168.92.10:2379 \
 	--ca-file=/etc/kubernetes/pki/etcd/ca.crt \
@@ -295,3 +309,4 @@ kubectl -n kube-system exec etcd-k8s-master01 -- etcdctl \
 	--key-file=/etc/kubernetes/pki/etcd/server.key cluster-health
 
 ```
+
