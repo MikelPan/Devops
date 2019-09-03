@@ -68,16 +68,21 @@ cat > /etc/docker/daemon.json <<EOF
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
   "log-driver": "json-file",
+  "data-root":"/var/lib/docker",
   "log-opts": {
-    "max-size": "100m"
+    "max-size": "100m",
+    "max-file": "3"
   },
   "storage-driver": "overlay2",
   "storage-opts": [
     "overlay2.override_kernel_check=true"
+    #"overlay2.size=1G"
   ],
+  "insecure-registries": [],
   "registry-mirrors": ["https://uyah70su.mirror.aliyuncs.com"]
 }
 EOF
+iptables -P FORWARD ACCEPT
 #注意，由于国内拉取镜像较慢，配置文件最后追加了阿里云镜像加速配置。
 mkdir -p /etc/systemd/system/docker.service.d
 # 重启docker服务
