@@ -7,7 +7,7 @@ useradd -r -g mysql -s /bin/false mysql
 # 创建数据目录
 mkdir -p /data/mysql3306/{mysql,binlog,slowlog,tmp,log,run}
 mkdir -p /usr/local/mysql
-chown -R mysql. /data/mysql3307
+chown -R mysql. /data/mysql3306
 chown -R mysql. /usr/local/mysql
 ```
 #### 二、mysql二进制下载
@@ -55,7 +55,7 @@ cp mysqld.service /usr/lib/systemd/system/mysqld3306.service
 cp mysqld.service /usr/lib/systemd/system/mysqld3307.service
 # 修改mysqld.service启动文件
 Type=forking 改为 Type=sample
-ExecStart启动命令改为/usr/local/bin/mysqld --defaults-file=/data/msyql3306/config/my.cnf
+ExecStart启动命令改为/usr/local/bin/mysqld --defaults-file=/data/mysql3306/config/my.cnf
 # 启动mysql
 systemctl enable mysqld3306
 systemctl start mysqld3306

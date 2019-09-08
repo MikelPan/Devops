@@ -212,6 +212,7 @@ MASTER_AUTO_POSITION = 1;
 start slave
 ```
 #### 4.5、gtid跳过事件
+##### 方法一
 ```shell
 # 查看gtid_next的值
 show variables like '%next%';
@@ -224,6 +225,23 @@ commit
 SET GTID_NEXT="AUTOMATIC";
 start slave;
 show slave status;
+```
+##### 方法二
+```shell
+# 重置master
+stop slave;
+reset master;
+SET @@GLOBAL.GTID_PURGED ='8f9e146f-0a18-11e7-810a-0050568833c8:1-4;
+START SLAVE;
+```
+##### 方法三
+```shell
+# pt 忽略错误码
+pt-slave-resetart -S /var/lib/mysql/mysql.sock —error-numbers=1062 --user=root --password='bc.123456'
+# pt 忽略错误信息
+pt-slave-resetart -S /var/lib/mysql/mysql.sock —error-numbers=1062 --user=root --password='bc.123456'
+```
+
 ```
 
 

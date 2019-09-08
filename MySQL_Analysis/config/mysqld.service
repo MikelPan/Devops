@@ -30,7 +30,8 @@ WantedBy=multi-user.target
 User=mysql
 Group=mysql
 
-Type=forking
+#Type=forking
+Type=sample
 
 PIDFile=/data/mysql3306/run/mysqld.pid
 
@@ -44,7 +45,8 @@ PermissionsStartOnly=true
 #ExecStartPre=/usr/bin/mysqld_pre_systemd
 
 # Start main service
-ExecStart=/usr/local/mysql/bin/mysqld --daemonize --pid-file=/data/mysql3306/run/mysqld.pid $MYSQLD_OPTS
+#ExecStart=/usr/local/mysql/bin/mysqld --daemonize --pid-file=/data/mysql3306/run/mysqld.pid $MYSQLD_OPTS
+ExecStart=/usr/local/mysql/bin/mysqld --defaults-file=/data/mysql3306/config/my.cnf
 
 # Use this to switch malloc implementation
 EnvironmentFile=-/etc/sysconfig/mysql
