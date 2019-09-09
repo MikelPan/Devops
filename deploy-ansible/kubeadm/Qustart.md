@@ -65,7 +65,7 @@ sealos init --master 192.168.174.134 \
     --version v1.14.1 \
     --pkg-url /root/kube1.14.1.tar.gz  
 # 安装单节点
-sealos init --master 192.168.248.135 \
+sealos init --master 192.168.248.134 \
     --node 192.168.248.135 \                 
     --user root \                        
     --passwd 123456 \      
