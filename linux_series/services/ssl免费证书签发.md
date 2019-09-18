@@ -14,9 +14,9 @@ acme.sh --renew  -d *.clsn.io -d clsn.io --dns --yes-I-know-dns-manual-mode-enou
 
 # 使用dns api方式
 api 参考文档 https://github.com/Neilpang/acme.sh/tree/master/dnsapi
-export Ali_Key="LTAIfKfwedWNEweZ"
-export Ali_Secret="qJ6Z9h36oodjpog54bkc6AjVcMNWJP"
-acme.sh --issue --dns dns_ali -d kptest.cn -d *.kptest.cn
+export Ali_Key="LTAIfKfwEweZ"
+export Ali_Secret="qJ6Z9h36oodjpog54bkc6AP"
+acme.sh --issue --dns dns_ali -d kpdetest.cn -d *.kptetrst.cn
 ```
 
 #### 说明参数的含义：
