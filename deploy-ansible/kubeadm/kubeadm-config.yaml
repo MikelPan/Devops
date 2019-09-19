@@ -1,8 +1,27 @@
+apiVersion: kubeadm.k8s.io/v1beta2
+bootstrapTokens:
+- groups:
+  - system:bootstrappers:kubeadm:default-node-token
+  token: abcdef.0123456789abcdef
+  ttl: 24h0m0s
+  usages:
+  - signing
+  - authentication
+kind: InitConfiguration
+localAPIEndpoint:
+  advertiseAddress: 172.18.12.10 
+  bindPort: 6443
+nodeRegistration:
+  criSocket: /var/run/dockershim.sock
+  name: kube-master
+  taints:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+---
 apiServer:
   certSANs:
-  - 172.18.12.11
+  - 172.16.5.10
   - 127.0.0.1
-  - 120.79.205.76
   - apiserver.cluster.local
   extraArgs:
     authorization-mode: Node,RBAC
@@ -18,8 +37,8 @@ etcd:
     dataDir: /var/lib/etcd
 imageRepository: registry.aliyuncs.com/google_containers
 kind: ClusterConfiguration
-kubernetesVersion: v1.15.0
-controlPlaneEndpoint: apiserver.cluster.local:6443
+kubernetesVersion: v1.15.2
+controlPlaneEndpoint: "apiserver.cluster.local:6443"
 networking:
   dnsDomain: cluster.local
   podSubnet: 10.0.0.0/16
@@ -28,8 +47,8 @@ scheduler: {}
 ---
 apiVersion: kubeproxy.config.k8s.io/v1alpha1
 kind: KubeProxyConfiguration
+featureGates:
+  SupportIPVSProxyMode: true
 mode: ipvs
-ipvs:
-        excludeCIDRs: 
-        - 192.168.248.135/32
+
 
