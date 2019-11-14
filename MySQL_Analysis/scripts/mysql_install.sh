@@ -3,7 +3,7 @@
 groupadd mysql
 useradd -r -g mysql -s /bin/false mysql
 # 创建数据目录
-mkdir -p /data/mysql3306/{mysql,binlog,slowlog,tmp,log,run,config}
+mkdir -p /data/mysql3306/{mysql,binlog,slowlog,tmp,log,run,conf}
 mkdir -p /usr/local/mysql
 chown -R mysql. /data/mysql3306
 chown -R mysql. /usr/local/mysql
@@ -214,7 +214,8 @@ WantedBy=multi-user.target
 User=mysql
 Group=mysql
 
-Type=forking
+#Type=forking
+Type=sample
 
 PIDFile=/data/mysql3306/run/mysqld.pid
 
